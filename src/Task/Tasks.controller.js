@@ -1,4 +1,4 @@
-const { StatusCodes: { OK } } = require('http-status-codes');
+const { StatusCodes: { OK, CREATED } } = require('http-status-codes');
 const tasksService = require('./Tasks.service');
 
 const getAll = async (req, res) => {
@@ -15,11 +15,18 @@ const getById = async (req, res) => {
 const createOne = async (req, res) => {
   const { name, description } = req.body;
   const newTaskCreated = await tasksService.createOne(name, description);
-  res.status(OK).json(newTaskCreated);
+  res.status(CREATED).json(newTaskCreated);
+};
+
+const deleteById = async (req, res) => {
+  const { id } = req.params;
+  const task = await tasksService.deleteById(id);
+  res.status(OK).json(task);
 };
 
 module.exports = {
   getAll,
   getById,
   createOne,
+  deleteById,
 };

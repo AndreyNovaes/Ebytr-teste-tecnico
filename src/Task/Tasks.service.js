@@ -15,8 +15,14 @@ const createOne = async (name, description) => {
   return newTaskCreated;
 };
 
+const deleteById = async (id) => {
+  const task = await tasksModel.deleteById(id);
+  return task;
+};
+
 module.exports = {
   getAll,
   getById,
   createOne,
+  deleteById,
 };

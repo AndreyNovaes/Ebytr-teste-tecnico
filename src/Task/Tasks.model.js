@@ -18,8 +18,14 @@ const createOne = async (name, description) => {
   };
 };
 
+const deleteById = async (id) => {
+  const task = await Tasks.destroy({ where: { id } });
+  return task;
+};
+
 module.exports = {
   getAll,
   getById,
   createOne,
+  deleteById,
 };
