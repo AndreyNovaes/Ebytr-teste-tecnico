@@ -23,9 +23,15 @@ const deleteById = async (id) => {
   return task;
 };
 
+const updateStatusById = async (id, status) => {
+  const task = await Tasks.update({ status }, { where: { id } });
+  return task;
+};
+
 module.exports = {
   getAll,
   getById,
   createOne,
   deleteById,
+  updateStatusById,
 };
