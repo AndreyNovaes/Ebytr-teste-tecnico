@@ -9,7 +9,6 @@ module.exports = {
     database: 'database_development',
     host: MYSQL_HOST,
     dialect: 'mysql',
-    logging: true,
     define: {
       underscored: true,
       freezeTableName: true,
