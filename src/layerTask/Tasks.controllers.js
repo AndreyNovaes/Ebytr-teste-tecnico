@@ -27,8 +27,15 @@ const deleteById = async (req, res) => {
 const updateStatusById = async (req, res) => {
   const status = req.url.split('/').pop();
   const { id } = req.params;
-  const task = await tasksService.updateStatusById(id, status);
-  res.status(OK).json(task);
+  await tasksService.updateStatusById(id, status);
+  res.status(OK).json({ message: `Task ${id} updated to ${status}` });
+};
+
+const updateById = async (req, res) => {
+  const { id } = req.params;
+  const { name, description } = req.body;
+  await tasksService.updateById(id, name, description);
+  res.status(OK).json({ message: `Task ${id} updated to name: ${name} description: ${description}` });
 };
 
 module.exports = {
@@ -37,4 +44,5 @@ module.exports = {
   createOne,
   deleteById,
   updateStatusById,
+  updateById,
 };

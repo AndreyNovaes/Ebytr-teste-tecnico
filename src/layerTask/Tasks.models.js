@@ -28,10 +28,16 @@ const updateStatusById = async (id, status) => {
   return task;
 };
 
+const updateById = async (id, name, description) => {
+  const task = await Tasks.update({ name, description }, { where: { id } });
+  return task;
+};
+
 module.exports = {
   getAll,
   getById,
   createOne,
   deleteById,
   updateStatusById,
+  updateById,
 };
