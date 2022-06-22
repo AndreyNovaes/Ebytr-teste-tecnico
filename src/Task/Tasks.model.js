@@ -10,7 +10,16 @@ const getById = async (id) => {
   return task;
 };
 
+const createOne = async (name, description) => {
+  const newTaskCreated = await Tasks.create({ name, description, status: 'pending' });
+  return {
+    id: newTaskCreated.insertId,
+    ...newTaskCreated.dataValues,
+  };
+};
+
 module.exports = {
   getAll,
   getById,
+  createOne,
 };

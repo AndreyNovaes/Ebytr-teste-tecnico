@@ -10,7 +10,13 @@ const getById = async (id) => {
   return task;
 };
 
+const createOne = async (name, description) => {
+  const newTaskCreated = await tasksModel.createOne(name, description);
+  return newTaskCreated;
+};
+
 module.exports = {
   getAll,
   getById,
+  createOne,
 };
