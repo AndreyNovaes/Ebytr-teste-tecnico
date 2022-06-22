@@ -9,6 +9,15 @@ module.exports = {
     database: 'database_development',
     host: MYSQL_HOST,
     dialect: 'mysql',
+    logging: true,
+    define: {
+      underscored: true,
+      freezeTableName: true,
+      charset: 'utf8',
+      dialectOptions: {
+        collate: 'utf8_general_ci',
+      },
+    },
   },
   test: {
     username: MYSQL_USER,
