@@ -1,14 +1,11 @@
 const Express = require('express');
-const { Tasks } = require('./database/models');
+const tasksRouter = require('./Task/Task.router');
 
 const App = Express();
 
 App.use(Express.json());
 
 App.get('/', (req, res) => { res.json({ message: 'Hello World!' }); });
-App.get('/tasks', async (req, res) => {
-  const tarefas = await Tasks.findAll();
-  res.status(200).json(tarefas);
-});
+App.use('/tasks', tasksRouter);
 
 module.exports = App;
