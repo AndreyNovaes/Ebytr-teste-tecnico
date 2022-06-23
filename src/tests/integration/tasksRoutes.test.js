@@ -1,25 +1,52 @@
 const chai = require('chai');
+const chaiHttp = require('chai-http');
+const app = require('../../app');
+const sinon = require('sinon');
+const { Tasks } = require('../../database/models');
+const { task } = require('../__mocks__');
+const { before, after } = require('mocha');
+
+chai.use(chaiHttp);
 
 const { expect } = chai;
 
-describe('route HTTP GET /tasks', () => {
-    describe('should return all tasks in the database', () => {
-        let response;
+describe('HTTP GET route /tasks', () => {
+  before(async () => { sinon.stub(Tasks, 'findAll').returns(task.findAll()); });
 
-        before(async () => {
-            response = await minhaRequisicao();
-        });
-
-        it(
-            'A requisição GET para a rota traz uma lista inicial ' +
-            'contendo dois registros de pessoas usuárias',
-            () => {
-              expect(response.body).to.have.length(2);
-            }
-        );
-
-        it('Essa requisição deve retornar código de status 200', () => {
-            expect(response).to.have.status(200);
-        });
+  after(() => { Tasks.findAll.restore(); });
+  
+  describe('test the return with the mock of findAll, it returns my mock created at tasks.json', () => {
+    let response;
+    before(async () => {
+      response = await chai
+        .request(app)
+        .get('/tasks');
     });
+
+    it('should return a status of 200', () => {
+      expect(response).to.have.status(200);
+    });
+
+    it('should return an array with a lengthOf 3', () => {
+      expect(response.body).to.have.lengthOf(3);
+    });
+
+    it('should return an array of objects', () => {
+      expect(response.body).to.be.an('array');
+      expect(response.body[0]).to.be.an('object');
+      expect(response.body[1]).to.be.an('object');
+      expect(response.body[2]).to.be.an('object');
+    });
+
+    it('should return an array of objects with this properties', () => {
+      expect(response.body[0]).to.have.all.keys(
+        'id',
+        'name',
+        'description',
+        'status',
+        'createdAt',
+        'updatedAt'
+      );
+    });
+  });
 });

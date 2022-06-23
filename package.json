@@ -12,7 +12,7 @@
     "seed": "npx sequelize-cli db:seed:all",
     "engage": "npm run drop && npm run create && npm run migrate && npm run seed && npm run dev",
     "start:test": "NODE_ENV === 'test' && npm run dev",
-    "test": "nyc mocha src/tests/**/*.test.js"
+    "test": "nyc mocha src/tests/**/*.test.js --exit"
   },
   "keywords": [],
   "author": "",

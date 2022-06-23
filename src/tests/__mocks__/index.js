@@ -13,12 +13,12 @@ const mockCreate = (Instance, data) => {
   return newData;
 };
 
-const User = {
+const task = {
   create: async (data) => mockCreate(tasks, data),
   findAll: async () => tasks,
   findOne: async (id) => tasks.find((task) => task.id === id)
 };
 
 module.exports = {
-  User,
+  task,
 };
