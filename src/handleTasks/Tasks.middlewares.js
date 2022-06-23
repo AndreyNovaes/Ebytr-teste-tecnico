@@ -7,8 +7,6 @@ const updateStatusValidation = async (req, res, next) => {
   const task = await Tasks.findByPk(id);
   if (!task) {
     return res.status(NOT_FOUND).json({ message: 'Task not found' });
-  } if (task.status === status) {
-    return res.status(BAD_REQUEST).json({ message: 'Task already in this status' });
   } if (!['pending', 'ongoing', 'finished'].includes(status)) {
     return res.status(BAD_REQUEST).json({ message: 'Invalid status' });
   }
@@ -26,7 +24,17 @@ const updateValidation = async (req, res, next) => {
   } if (!name) {
     return res.status(BAD_REQUEST).json({ message: 'name is required' });
   } if (!description) {
-    return res.status(BAD_REQUEST).json({ message: 'nescription is required' });
+    return res.status(BAD_REQUEST).json({ message: 'description is required' });
+  }
+  return next();
+};
+
+const createOneValidation = async (req, res, next) => {
+  const { name, description } = req.body;
+  if (!name) {
+    return res.status(BAD_REQUEST).json({ message: 'name is required' });
+  } if (!description) {
+    return res.status(BAD_REQUEST).json({ message: 'description is required' });
   }
   return next();
 };
@@ -34,4 +42,5 @@ const updateValidation = async (req, res, next) => {
 module.exports = {
   updateValidation,
   updateStatusValidation,
+  createOneValidation,
 };

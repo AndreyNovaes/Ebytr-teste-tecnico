@@ -20,8 +20,8 @@ const createOne = async (req, res) => {
 
 const deleteById = async (req, res) => {
   const { id } = req.params;
-  const task = await tasksService.deleteById(id);
-  res.status(OK).json(task);
+  await tasksService.deleteById(id);
+  res.status(OK).json({ message: `Task ${id} deleted` });
 };
 
 const updateStatusById = async (req, res) => {
