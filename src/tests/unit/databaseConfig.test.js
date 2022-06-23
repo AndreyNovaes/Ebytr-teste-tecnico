@@ -1,8 +1,9 @@
-const indexModel = require('../../database/models/index')
-const { sequelize: { config } } = indexModel;
 const { expect } = require('chai');
+const indexModel = require('../../database/models/index')
 
 require('dotenv').config();
+
+const { sequelize: { config } } = indexModel;
 
 describe('tests if the database has the correct environment variables', () => {
   const { MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD, MYSQL_PORT } = process.env; 
