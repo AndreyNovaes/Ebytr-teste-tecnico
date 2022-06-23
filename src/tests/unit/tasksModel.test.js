@@ -1,7 +1,4 @@
-const { describe } = require('mocha');
-const {
-  sequelize, dataTypes, checkModelName, checkPropertyExists,
-} = require('sequelize-test-helpers');
+const { sequelize, dataTypes, checkModelName, checkPropertyExists } = require('sequelize-test-helpers');
 const tasksModel = require('../../database/models/tasks');
 
 describe('model tasks', () => {
