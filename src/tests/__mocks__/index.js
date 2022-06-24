@@ -1,22 +1,23 @@
 const tasks = require('./tasks.json');
 
-const mockCreate = (Instance, data) => {
-  if (!data) {
-    return;
-  }
-
-  const newData = data;
-  if (!!Instance[0].id) {
-    newData.id = Date.now();
-  }
-  Instance.push(newData);
-  return newData;
+const mockCreate = (tasks, data) => {
+  const { name, description } = data;
+  const newTask = {
+    id: tasks.length + 1,
+    name,
+    description,
+    status: 'pending',
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  };
+  tasks.push(newTask);
+  return newTask;
 };
 
 const task = {
   create: async (data) => mockCreate(tasks, data),
   findAll: async () => tasks,
-  findOne: async (id) => tasks.find((task) => task.id === id)
+  findByPk: async (id) => tasks.find((task) => task.id === id),
 };
 
 module.exports = {

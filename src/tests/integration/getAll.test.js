@@ -15,7 +15,7 @@ describe('HTTP GET route /tasks', () => {
 
   after(() => { Tasks.findAll.restore(); });
   
-  describe('test the return with the mock of findAll, it returns my mock created at tasks.json', () => {
+  describe('test the return with the mock of findAll', () => {
     let response;
     before(async () => {
       response = await chai
