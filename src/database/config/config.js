@@ -13,14 +13,6 @@ module.exports = {
     host: MYSQL_HOST,
     port: MYSQL_PORT,
     dialect: 'mysql',
-    define: {
-      underscored: true,
-      freezeTableName: true,
-      charset: 'utf8',
-      dialectOptions: {
-        collate: 'utf8_general_ci',
-      },
-    },
   },
   test: {
     username: MYSQL_USER,
@@ -29,14 +21,6 @@ module.exports = {
     host: MYSQL_HOST,
     port: MYSQL_PORT,
     dialect: 'mysql',
-    define: {
-      underscored: true,
-      freezeTableName: true,
-      charset: 'utf8',
-      dialectOptions: {
-        collate: 'utf8_general_ci',
-      },
-    },
   },
   production: {
     username: MYSQL_USER,

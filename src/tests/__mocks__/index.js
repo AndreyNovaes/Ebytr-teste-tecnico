@@ -1,11 +1,8 @@
-const tasks = require('./tasks.json');
+const mockTasks = require('./mockTasks.json');
 
-const taskMocks = {
-  findAll: async () => tasks,
-  findByPk: async (id) => tasks.find((task) => task.id === id),
-  create: async (body) => { return { id: '1', ...body }; }
+const mocks = {
+  findAll: async () => mockTasks,
+  findByPk: async (id) => mockTasks.find((task) => task.id === id),
 };
 
-module.exports = {
-  taskMocks,
-};
+module.exports = mocks;

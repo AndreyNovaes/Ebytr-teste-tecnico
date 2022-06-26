@@ -8,6 +8,6 @@ describe('model tasks', () => {
   checkModelName(tasks, 'tasks');
 
   context('tests the model tasks properties', () => {
-    ['name', 'description', 'status'].forEach(checkPropertyExists(tasks));
+    ['name', 'description', 'status' ].forEach(checkPropertyExists(tasks));
   });
 });
