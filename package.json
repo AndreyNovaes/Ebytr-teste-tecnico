@@ -10,8 +10,7 @@
     "create": "npx sequelize-cli db:create",
     "migrate": "npx sequelize-cli db:migrate",
     "seed": "npx sequelize-cli db:seed:all",
-    "test": "cross-env NODE_ENV=test mocha src/tests/**/*.test.js --exit",
-    "test:coverage": "cross-env NODE_ENV=test nyc mocha src/tests/**/*.test.js --exit",
+    "test": "cross-env NODE_ENV=test nyc mocha src/tests/**/*.test.js --exit",
     "engage": "npm run drop && npm run create && npm run migrate && npm run seed && npm run dev",
     "engage:test": "cross-env NODE_ENV=test npm run engage && npm run test"
   },

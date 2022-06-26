@@ -31,7 +31,9 @@ const updateValidation = async (req, res, next) => {
 
 const createOneValidation = async (req, res, next) => {
   const { name, description } = req.body;
-  if (!name) {
+  if (!name && !description) {
+    return res.status(BAD_REQUEST).json({ message: 'name and description are required' });
+  } if (!name) {
     return res.status(BAD_REQUEST).json({ message: 'name is required' });
   } if (!description) {
     return res.status(BAD_REQUEST).json({ message: 'description is required' });
