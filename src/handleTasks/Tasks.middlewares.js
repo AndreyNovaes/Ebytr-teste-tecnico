@@ -6,9 +6,9 @@ const updateStatusValidation = async (req, res, next) => {
   const { id } = req.params;
   const task = await Tasks.findByPk(id);
   if (!task) {
-    return res.status(NOT_FOUND).json({ message: 'Task not found' });
+    return res.status(NOT_FOUND).json({ message: 'task not found' });
   } if (!['pending', 'ongoing', 'finished'].includes(status)) {
-    return res.status(BAD_REQUEST).json({ message: 'Invalid status' });
+    return res.status(BAD_REQUEST).json({ message: 'invalid status' });
   }
   return next();
 };
