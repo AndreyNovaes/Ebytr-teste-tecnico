@@ -21,21 +21,21 @@ const createOne = async (req, res) => {
 const deleteById = async (req, res) => {
   const { id } = req.params;
   await tasksService.deleteById(id);
-  res.status(OK).json({ message: `Task ${id} deleted` });
+  res.status(OK).json({ message: `task ${id} deleted` });
 };
 
 const updateStatusById = async (req, res) => {
   const status = req.url.split('/').pop();
   const { id } = req.params;
   await tasksService.updateStatusById(id, status);
-  res.status(OK).json({ message: `Task ${id} updated to ${status}` });
+  res.status(OK).json({ message: `task ${id} updated to ${status}` });
 };
 
 const updateById = async (req, res) => {
   const { id } = req.params;
   const { name, description } = req.body;
   await tasksService.updateById(id, name, description);
-  res.status(OK).json({ message: `Task ${id} updated` });
+  res.status(OK).json({ message: `task ${id} updated` });
 };
 
 module.exports = {

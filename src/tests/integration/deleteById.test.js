@@ -20,6 +20,6 @@ describe('HTTP DELETE route /tasks/:id', () => {
     const response = await chai.request(App).delete(`/tasks/${idWhatExists}`);
     expect(response.status).to.equal(200);
     expect(response.body).to.have.property('message');
-    expect(response.body.message).to.equal(`Task ${idWhatExists} deleted`);
+    expect(response.body.message).to.equal(`task ${idWhatExists} deleted`);
   });
 });
