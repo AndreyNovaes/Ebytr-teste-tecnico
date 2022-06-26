@@ -1,9 +1,9 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const app = require('../../app');
+const App = require('../../app');
 const sinon = require('sinon');
 const { Tasks } = require('../../database/models');
-const { task } = require('../__mocks__');
+const { taskMocks } = require('../__mocks__');
 const { before, after } = require('mocha');
 
 chai.use(chaiHttp);
@@ -11,7 +11,7 @@ chai.use(chaiHttp);
 const { expect } = chai;
 
 describe('HTTP GET route /tasks', () => {
-  before(async () => { sinon.stub(Tasks, 'findAll').returns(task.findAll()); });
+  before(async () => { sinon.stub(Tasks, 'findAll').returns(taskMocks.findAll()); });
 
   after(() => { Tasks.findAll.restore(); });
   
@@ -19,7 +19,7 @@ describe('HTTP GET route /tasks', () => {
     let response;
     before(async () => {
       response = await chai
-        .request(app)
+        .request(App)
         .get('/tasks');
     });
 
