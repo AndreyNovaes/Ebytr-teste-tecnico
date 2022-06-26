@@ -1,7 +1,7 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
+const { describe, it } = require('mocha');
 const App = require('../../app');
-const { before, after } = require('mocha');
 
 chai.use(chaiHttp);
 
@@ -19,7 +19,7 @@ describe('HTTP POST route /tasks ', () => {
       expect(response.body).to.have.property('message');
       expect(response.body.message).to.equal('name and description are required');
     });
-  
+
     it('should return an error message if the name is empty', async () => {
       const response = await chai.request(App)
         .post('/tasks')
@@ -28,7 +28,7 @@ describe('HTTP POST route /tasks ', () => {
       expect(response.body).to.have.property('message');
       expect(response.body.message).to.equal('name is required');
     });
-      
+
     it('should return an error message if the description is empty', async () => {
       const response = await chai.request(App)
         .post('/tasks')

@@ -1,10 +1,16 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const App = require('../../app');
 const sinon = require('sinon');
+const {
+  before,
+  after,
+  describe,
+  it,
+} = require('mocha');
+
+const App = require('../../app');
 const { Tasks } = require('../../database/models');
 const mocks = require('../__mocks__');
-const { before, after } = require('mocha');
 
 chai.use(chaiHttp);
 
@@ -14,7 +20,7 @@ describe('HTTP GET route /tasks', () => {
   before(async () => { sinon.stub(Tasks, 'findAll').returns(mocks.findAll()); });
 
   after(() => { Tasks.findAll.restore(); });
-  
+
   describe('test the return with the mock of findAll', () => {
     let response;
     before(async () => {
@@ -45,7 +51,7 @@ describe('HTTP GET route /tasks', () => {
         'description',
         'status',
         'createdAt',
-        'updatedAt'
+        'updatedAt',
       );
     });
   });
@@ -54,9 +60,9 @@ describe('HTTP GET route /tasks', () => {
     let response;
 
     before(async () => {
-    response = await chai
-      .request(App)
-      .get('/tasks');
+      response = await chai
+        .request(App)
+        .get('/tasks');
     });
 
     it('should return an status code of 200', async () => {
@@ -76,7 +82,7 @@ describe('HTTP GET route /tasks', () => {
         'description',
         'status',
         'createdAt',
-        'updatedAt'
+        'updatedAt',
       );
     });
   });

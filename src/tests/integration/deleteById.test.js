@@ -1,7 +1,7 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
+const { before, describe, it } = require('mocha');
 const App = require('../../app');
-const { before, after } = require('mocha');
 
 chai.use(chaiHttp);
 
@@ -10,7 +10,7 @@ const { expect } = chai;
 describe('HTTP DELETE route /tasks/:id', () => {
   const fakeBody = { name: 'test', description: 'test' };
   let idWhatExists;
-  
+
   before(async () => {
     const response = await chai.request(App).post('/tasks').send(fakeBody);
     idWhatExists = response.body.id;

@@ -1,7 +1,7 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
+const { before, describe, it } = require('mocha');
 const App = require('../../app');
-const { before, after } = require('mocha');
 
 chai.use(chaiHttp);
 
@@ -16,16 +16,16 @@ describe('HTTP PUT route /tasks/:id/:status', () => {
   const invalidId = '99999999999999999999999999999';
   let idWhatExists;
 
-  before( async () => {
+  before(async () => {
     const task = await chai.request(App)
       .post('/tasks')
       .send(fakeBody);
-      expect(task.status).to.equal(201);
-      idWhatExists = task.body.id;
+    expect(task.status).to.equal(201);
+    idWhatExists = task.body.id;
   });
 
   describe('failure cases', () => {
-    it('should return an error message if the id is invalid', async() => {
+    it('should return an error message if the id is invalid', async () => {
       const response = await chai.request(App)
         .put(`/tasks/${invalidId}/${baseStatus}`);
       expect(response.status).to.equal(404);
@@ -38,14 +38,13 @@ describe('HTTP PUT route /tasks/:id/:status', () => {
       expect(response.status).to.equal(400);
       expect(response.body).to.have.property('message');
       expect(response.body.message).to.equal('invalid status');
-    });    
+    });
   });
 
   describe('successfully cases', () => {
-
     it('should return the message of the status updated to ongoing', async () => {
       const response = await chai.request(App)
-      .put(`/tasks/${idWhatExists}/${updatedMidStatus}`);
+        .put(`/tasks/${idWhatExists}/${updatedMidStatus}`);
       expect(response.status).to.equal(200);
       expect(response.body).to.have.property('message');
       expect(response.body.message).to.equal(`task ${idWhatExists} updated to ${updatedMidStatus}`);
@@ -65,7 +64,7 @@ describe('HTTP PUT route /tasks/:id/:status', () => {
 
     it('should return the message of the status updated to finished', async () => {
       const response = await chai.request(App)
-      .put(`/tasks/${idWhatExists}/${updatedFinalStatus}`);
+        .put(`/tasks/${idWhatExists}/${updatedFinalStatus}`);
       expect(response.status).to.equal(200);
       expect(response.body).to.have.property('message');
       expect(response.body.message).to.equal(`task ${idWhatExists} updated to ${updatedFinalStatus}`);

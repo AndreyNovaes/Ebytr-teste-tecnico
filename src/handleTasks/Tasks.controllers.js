@@ -2,40 +2,64 @@ const { StatusCodes: { OK, CREATED } } = require('http-status-codes');
 const tasksService = require('./Tasks.services');
 
 const getAll = async (req, res) => {
-  const tasks = await tasksService.getAll();
-  res.status(OK).json(tasks);
+  try {
+    const tasks = await tasksService.getAll();
+    res.status(OK).json(tasks);
+  } catch (error) {
+    res.status(500).json({ controllerGetAll: error });
+  }
 };
 
 const getById = async (req, res) => {
-  const { id } = req.params;
-  const task = await tasksService.getById(id);
-  res.status(OK).json(task);
+  try {
+    const { id } = req.params;
+    const task = await tasksService.getById(id);
+    res.status(OK).json(task);
+  } catch (error) {
+    res.status(500).json({ controllerGetById: error });
+  }
 };
 
 const createOne = async (req, res) => {
-  const { name, description } = req.body;
-  const newTaskCreated = await tasksService.createOne(name, description);
-  res.status(CREATED).json(newTaskCreated);
+  try {
+    const { name, description } = req.body;
+    const newTaskCreated = await tasksService.createOne(name, description);
+    res.status(CREATED).json(newTaskCreated);
+  } catch (error) {
+    res.status(500).json({ controllerCreateOne: error });
+  }
 };
 
 const deleteById = async (req, res) => {
-  const { id } = req.params;
-  await tasksService.deleteById(id);
-  res.status(OK).json({ message: `task ${id} deleted` });
+  try {
+    const { id } = req.params;
+    await tasksService.deleteById(id);
+    res.status(OK).json({ message: `task ${id} deleted` });
+  } catch (error) {
+    res.status(500).json({ controllerDeleteById: error });
+  }
 };
 
 const updateStatusById = async (req, res) => {
-  const status = req.url.split('/').pop();
-  const { id } = req.params;
-  await tasksService.updateStatusById(id, status);
-  res.status(OK).json({ message: `task ${id} updated to ${status}` });
+  try {
+    const status = req.url.split('/').pop();
+    const { id } = req.params;
+    await tasksService.updateStatusById(id, status);
+    res.status(OK).json({ message: `task ${id} updated to ${status}` });
+  } catch (error) {
+    res.status(500).json({ controllerUpdateStatusById: error });
+  }
 };
 
 const updateById = async (req, res) => {
-  const { id } = req.params;
-  const { name, description } = req.body;
-  await tasksService.updateById(id, name, description);
-  res.status(OK).json({ message: `task ${id} updated` });
+  try {
+    const { id } = req.params;
+    const { name, description } = req.body;
+    await tasksService.updateById(id, name, description);
+    res.status(OK).json({ message: `task ${id} updated` });
+  } catch (error) {
+    res.status(500).json({ controllerUpdateById: error });
+  }
 };
 
 module.exports = {
