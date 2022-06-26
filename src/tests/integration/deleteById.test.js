@@ -14,7 +14,7 @@ describe('HTTP DELETE route /tasks/:id', () => {
     const response = await chai.request(App).post('/tasks').send(fakeBody);
     idWhatExists = response.body.id;
   });
-  it('should return the message of Task :id deleted', async () => {
+  it('should return the message of Task deleted', async () => {
     const response = await chai.request(App).delete(`/tasks/${idWhatExists}`);
     expect(response.status).to.equal(200);
     expect(response.body).to.have.property('message');

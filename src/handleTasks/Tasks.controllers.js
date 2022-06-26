@@ -35,7 +35,7 @@ const updateById = async (req, res) => {
   const { id } = req.params;
   const { name, description } = req.body;
   await tasksService.updateById(id, name, description);
-  res.status(OK).json({ message: `Task ${id} updated to name: ${name} description: ${description}` });
+  res.status(OK).json({ message: `Task ${id} updated` });
 };
 
 module.exports = {
