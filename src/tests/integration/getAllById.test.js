@@ -43,6 +43,7 @@ describe('HTTP GET route /tasks/:id', () => {
       );
     });
   });
+
   describe('test returns of the test database', () => {
     let response;
     before(async () => {
@@ -50,12 +51,15 @@ describe('HTTP GET route /tasks/:id', () => {
       .request(App)
       .get('/tasks/1');
     });
+
     it('should return an status code of 200', async () => {
       expect(response.status).to.equal(200);
     });
+
     it('should return an object task', async () => {
       expect(response.body).to.be.an('object');
     });
+
     it('should return a task with this properties', async () => {
       expect(response.body).to.have.all.keys(
         'id',

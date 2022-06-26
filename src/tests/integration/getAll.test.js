@@ -52,19 +52,23 @@ describe('HTTP GET route /tasks', () => {
 
   describe('test returns of the test database', () => {
     let response;
+
     before(async () => {
     response = await chai
       .request(App)
       .get('/tasks');
     });
+
     it('should return an status code of 200', async () => {
       expect(response.status).to.equal(200);
     });
+
     it('should return an array of tasks', async () => {
       expect(response.body).to.be.an('array');
       expect(response.body[0]).to.be.an('object');
       expect(response.body[1]).to.be.an('object');
     });
+
     it('should return an array of tasks with this properties', async () => {
       expect(response.body[0]).to.have.all.keys(
         'id',
