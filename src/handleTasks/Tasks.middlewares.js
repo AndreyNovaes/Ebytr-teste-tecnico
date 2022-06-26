@@ -18,9 +18,9 @@ const updateValidation = async (req, res, next) => {
   const { name, description } = req.body;
   const task = await Tasks.findByPk(id);
   if (!task) {
-    return res.status(NOT_FOUND).json({ message: 'Task not found' });
-  } if (task.status === 'finished') {
-    return res.status(BAD_REQUEST).json({ message: 'Task already finished' });
+    return res.status(NOT_FOUND).json({ message: 'task not found' });
+  } if (!name && !description) {
+    return res.status(BAD_REQUEST).json({ message: 'name and description are required' });
   } if (!name) {
     return res.status(BAD_REQUEST).json({ message: 'name is required' });
   } if (!description) {

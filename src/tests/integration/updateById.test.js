@@ -12,6 +12,70 @@ describe('HTTP PUT route /tasks/:id', () => {
   const updatedBody = { name: 'updatedName', description: 'updatedDescription' };
   let idWhatExists;
 
+  describe('should return an error if task id is not an number and if not exists in the database', () => {
+    it('should return an error if task id is not an number', (done) => {
+      chai.request(App)
+        .put('/tasks/test')
+        .send(fakeBody)
+        .end((err, res) => {
+          expect(res.status).to.equal(404);
+          expect(res.body).to.have.property('message');
+          expect(res.body.message).to.equal('task not found');
+          done();
+        });
+    });
+
+    it('should return an error if task id is not exists in the database', (done) => {
+      chai.request(App)
+        .put('/tasks/9999999999')
+        .send(fakeBody)
+        .end((err, res) => {
+          expect(res.status).to.equal(404);
+          expect(res.body).to.have.property('message');
+          expect(res.body.message).to.equal('task not found');
+          done();
+        });
+    });
+  });
+
+  describe('should return an error if the name, description or both not exists in the request body', () => {
+    it('should return an error if the name is empty', (done) => {
+      chai.request(App)
+        .put('/tasks/1')
+        .send({ description: 'test' })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body).to.have.property('message');
+          expect(res.body.message).to.equal('name is required');
+          done();
+        });
+    });
+
+    it('should return an error if the description is empty', (done) => {
+      chai.request(App)
+        .put('/tasks/1')
+        .send({ name: 'test' })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body).to.have.property('message');
+          expect(res.body.message).to.equal('description is required');
+          done();
+        });
+    });
+
+    it('should return an error if the name and description are empty', (done) => {
+      chai.request(App)
+        .put('/tasks/1')
+        .send({})
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body).to.have.property('message');
+          expect(res.body.message).to.equal('name and description are required');
+          done();
+        });
+    });
+  });
+
   before(async () => {
     const response = await chai.request(App).post('/tasks').send(fakeBody);
     expect(response.status).to.equal(201);
