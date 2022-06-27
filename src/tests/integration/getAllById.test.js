@@ -45,8 +45,10 @@ describe('HTTP GET route /tasks/:id', () => {
       );
     });
   });
+});
 
-  describe('test returns of the test database', () => {
+describe('HTTP GET route /tasks/:id using test database', () => {
+  describe('sucessfully cases', () => {
     let response;
     before(async () => {
       response = await chai
@@ -71,6 +73,28 @@ describe('HTTP GET route /tasks/:id', () => {
         'createdAt',
         'updatedAt',
       );
+    });
+  });
+
+  describe('failure cases', () => {
+    describe('test the return with a invalid id', () => {
+      let response;
+      const invalidId = 'invalidId';
+      before(async () => {
+        response = await chai
+          .request(App)
+          .get(`/tasks/${invalidId}`);
+      });
+
+      it('should return a status of 404', () => {
+        expect(response).to.have.status(404);
+      });
+
+      it('should return an object', () => {
+        expect(response.body).to.be.an('object');
+        expect(response.body).to.have.a.property('message');
+        expect(response.body.message).to.equal(`task with id:${invalidId} not found`);
+      });
     });
   });
 });

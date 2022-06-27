@@ -55,8 +55,10 @@ describe('HTTP GET route /tasks', () => {
       );
     });
   });
+});
 
-  describe('test returns of the test database', () => {
+describe('HTTP GET route /tasks using test database', () => {
+  describe('sucessfully cases', () => {
     let response;
 
     before(async () => {

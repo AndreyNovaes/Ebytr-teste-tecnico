@@ -5,7 +5,7 @@ const getByIdValidation = async (req, res, next) => {
   const { id } = req.params;
   const task = await Tasks.findByPk(id);
   if (!task) {
-    res.status(NOT_FOUND).json({ message: `task ${id} not found` });
+    res.status(NOT_FOUND).json({ message: `task with id:${id} not found` });
   } else {
     next();
   }
