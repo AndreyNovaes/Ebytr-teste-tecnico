@@ -1,6 +1,16 @@
 const { StatusCodes: { NOT_FOUND, BAD_REQUEST } } = require('http-status-codes');
 const { Tasks } = require('../database/models');
 
+const getByIdValidation = async (req, res, next) => {
+  const { id } = req.params;
+  const task = await Tasks.findByPk(id);
+  if (!task) {
+    res.status(NOT_FOUND).json({ message: `task ${id} not found` });
+  } else {
+    next();
+  }
+};
+
 const updateStatusValidation = async (req, res, next) => {
   const status = req.url.split('/').pop();
   const { id } = req.params;
@@ -45,4 +55,5 @@ module.exports = {
   updateValidation,
   updateStatusValidation,
   createOneValidation,
+  getByIdValidation,
 };
