@@ -12,7 +12,7 @@ Criação de um back-end com node e express para a criação de uma aplicação 
 ## Descrição do projeto 
 
 <p align="justify">
- Criação de uma API REST utilizando javascript, nodeJS, express, sequelize(MySQL) com testes unitários e de integração.
+ Criação de uma API REST utilizando javascript, nodeJS, express e sequelize(MySQL), com testes unitários e de integração.
 </p>
 
 ## Funcionalidades
