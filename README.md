@@ -9,11 +9,18 @@ Criação de um back-end com node e express para a criação de uma aplicação 
 
 - [Acesso ao projeto](#acesso-ao-projeto)
 
-## Descrição do projeto 
+## Descrição do projeto
 
 <p align="justify">
  Criação de uma API REST utilizando javascript, nodeJS, express e sequelize(MySQL), com testes unitários e de integração.
 </p>
+
+## Banco de dados
+
+### MySQL
+### Sequelize ORM
+### Exemplo do formato da tabela Task
+<p align="center"><img width="80%" src="./assets/tableExample.png"></p>
 
 ## Funcionalidades
 
@@ -25,6 +32,7 @@ Criação de um back-end com node e express para a criação de uma aplicação 
 ### HTTP PUT rota "/tasks/:id/:status" => Update da característica de status de uma task. <br>
 
 ## Ferramentas utilizadas
+
 ### - Javascript;
 ### - NodeJS;
 ### - Express;
@@ -36,4 +44,4 @@ Criação de um back-end com node e express para a criação de uma aplicação 
 ### - Dotenv para a configuração do banco de dados MySQL;
 
 ## Acesso ao projeto
-  Acesse o link da [DEMO](https://gtmudin.github.io/Ebytr-back-end-teste-tecnico/.
+  Acesse o link do [DEPLOY](https://gtmudin.github.io/Ebytr-back-end-teste-tecnico/.)
