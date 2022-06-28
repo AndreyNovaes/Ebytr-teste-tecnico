@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "npm run drop && npm run create && npm run migrate && npm run seed && npm run dev",
     "dev": "nodemon ./src/server",
     "drop": "npx sequelize-cli db:drop",
     "create": "npx sequelize-cli db:create",
