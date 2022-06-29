@@ -4,15 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run drop && npm run create && npm run migrate && npm run seed && npm run dev",
     "dev": "nodemon ./src/server",
     "drop": "npx sequelize-cli db:drop",
     "create": "npx sequelize-cli db:create",
     "migrate": "npx sequelize-cli db:migrate",
     "seed": "npx sequelize-cli db:seed:all",
-    "test": "cross-env NODE_ENV=test nyc mocha src/tests/**/*.test.js --exit",
-    "engage": "npm run drop && npm run create && npm run migrate && npm run seed && npm run dev",
-    "engage:test": "cross-env NODE_ENV=test npm run engage && npm run test"
+    "compose:up": "docker-compose up -d --build",
+    "compose:down": "(cd app && docker-compose down --remove-orphans",
+    "start": "npm run drop && npm run create && npm run migrate && npm run seed && npm run dev",
+    "start:test": "cross-env NODE_ENV=test npm run engage && npm run test",
+    "test": "cross-env NODE_ENV=test nyc mocha src/tests/**/*.test.js --exit"
   },
   "keywords": [],
   "author": "",
@@ -26,16 +27,16 @@
   },
   "devDependencies": {
     "chai": "^4.3.6",
-    "mocha": "^10.0.0",
-    "nyc": "^15.1.0",
-    "sequelize-test-helpers": "^1.4.2",
     "chai-http": "^4.3.0",
     "cross-env": "^7.0.3",
     "eslint": "^8.18.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
+    "mocha": "^10.0.0",
     "nodemon": "^2.0.16",
+    "nyc": "^15.1.0",
     "sequelize-cli": "^6.4.1",
+    "sequelize-test-helpers": "^1.4.2",
     "sinon": "^14.0.0"
   }
 }

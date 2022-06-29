@@ -4,7 +4,7 @@ const tasksRouter = require('./handleTasks/Tasks.router');
 const App = Express();
 
 App.use(Express.json());
-App.use('/', (req, res) => { res.json('Hello World!'); });
 App.use('/tasks', tasksRouter);
+App.use('/', (req, res) => { res.json('Hello World!'); });
 
 module.exports = App;
