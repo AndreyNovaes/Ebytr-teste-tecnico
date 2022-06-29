@@ -42,25 +42,31 @@
 :small_blue_diamond: [Como rodar a aplicação] <br>
 - :heavy_check_mark: No terminal, clone o projeto:
 ```
- - git clone https://github.com/AndreyNovaes/Ebytr-back-end-teste-tecnico.git
+ git clone https://github.com/AndreyNovaes/Ebytr-back-end-teste-tecnico.git
 ```
 - :heavy_check_mark: Na pasta raiz da aplicação preencher o .env.example, após preencher retire o .example deixando o nome do arquivo apenas .env
 - :heavy_check_mark: Suba a aplicação para o container com o comando:
 ```
- - npm run compose:up
+ npm run compose:up
 ```
 - :heavy_check_mark: Pronto, sua aplicação vai estar rodando no host e na porta especificada PORT dentro do .env <br>
 
 :small_blue_diamond: [Como rodar os testes] <br>
 - :heavy_check_mark: Faça a instalação das dependencias com o comando:
 ```
- - npm install
+ npm install
 ```
 - :heavy_check_mark: Rode o script que vai subir o banco de dados de testes e roda-los
 ```
- - npm run start:test
+ npm run start:test
 ```
-- :heavy_check_mark: Pronto, sua aplicação vai estar rodando no host e na porta especificada PORT_TEST dentro do .env <br>
+- :heavy_check_mark: Pronto, seu bando de testes vai estar rodando no host e na porta especificada PORT_TEST dentro do .env <br>
+- :heavy_check_mark: Para qualquer teste subsequente use o comando: <br>
+```
+ npm test
+```
+
+
 
 
 
