@@ -16,12 +16,12 @@ chai.use(chaiHttp);
 
 const { expect } = chai;
 
-describe('HTTP GET route /tasks', () => {
+describe.only('HTTP GET route /tasks findAll on tasks model mocked', () => {
   before(async () => { sinon.stub(Tasks, 'findAll').returns(mocks.findAll()); });
 
   after(() => { Tasks.findAll.restore(); });
 
-  describe('test the return with the mock of findAll', () => {
+  it('should return a sucessfully request operation', async () => {
     let response;
     before(async () => {
       response = await chai

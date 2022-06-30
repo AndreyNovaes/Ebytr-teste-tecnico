@@ -14,7 +14,7 @@
     "engage": "npm run drop && npm run create && npm run migrate && npm run seed && npm run dev",
     "start": "npm run engage",
     "start:test": "cross-env NODE_ENV=test npm run engage",
-    "test": "cross-env NODE_ENV=test nyc mocha src/tests/**/*.test.js --exit"
+    "test": "nyc mocha src/tests/**/*.test.js --exit"
   },
   "keywords": [],
   "author": "",

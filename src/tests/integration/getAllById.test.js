@@ -12,7 +12,7 @@ chai.use(chaiHttp);
 
 const { expect } = chai;
 
-describe('HTTP GET route /tasks/:id', () => {
+describe.only('HTTP GET route /tasks/:id', () => {
   const id = '1';
   before(async () => { sinon.stub(Tasks, 'findByPk').returns(mocks.findByPk(id)); });
 

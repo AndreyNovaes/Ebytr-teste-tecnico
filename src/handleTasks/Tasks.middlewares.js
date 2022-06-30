@@ -51,9 +51,19 @@ const createOneValidation = async (req, res, next) => {
   return next();
 };
 
+// const errorMiddleware = (err, _req, res, next) => {
+//   if (err instanceof Error) {
+//     const { httpStatus, message } = err;
+
+//     return res.status(httpStatus).json({ message });
+//   }
+//   return res.status(500).json({ error: { message: err.message } });
+// };
+
 module.exports = {
   updateValidation,
   updateStatusValidation,
   createOneValidation,
   getByIdValidation,
+  // errorMiddleware,
 };
