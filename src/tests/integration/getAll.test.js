@@ -16,12 +16,12 @@ chai.use(chaiHttp);
 
 const { expect } = chai;
 
-describe.only('HTTP GET route /tasks findAll on tasks model mocked', () => {
+describe('HTTP GET route /tasks', () => {
   before(async () => { sinon.stub(Tasks, 'findAll').returns(mocks.findAll()); });
 
   after(() => { Tasks.findAll.restore(); });
 
-  it('should return a sucessfully request operation', async () => {
+  describe('test the return with the mock of findAll', () => {
     let response;
     before(async () => {
       response = await chai
@@ -31,6 +31,10 @@ describe.only('HTTP GET route /tasks findAll on tasks model mocked', () => {
 
     it('should return a status of 200', () => {
       expect(response).to.have.status(200);
+    });
+
+    it('should return an array', () => {
+      expect(response.body).to.be.an('array');
     });
 
     it('should return an array with a lengthOf 3', () => {

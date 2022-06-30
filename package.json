@@ -13,7 +13,6 @@
     "compose:down": "docker-compose down --remove-orphans",
     "engage": "npm run drop && npm run create && npm run migrate && npm run seed && npm run dev",
     "start": "npm run engage",
-    "start:test": "cross-env NODE_ENV=test npm run engage",
     "test": "nyc mocha src/tests/**/*.test.js --exit"
   },
   "keywords": [],
@@ -29,7 +28,6 @@
   "devDependencies": {
     "chai": "^4.3.6",
     "chai-http": "^4.3.0",
-    "cross-env": "^7.0.3",
     "eslint": "^8.18.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
