@@ -37,7 +37,7 @@ const deleteById = async (req, res) => {
   try {
     const { id } = req.params;
     await tasksService.deleteById(id);
-    res.status(OK).json({ message: `task ${id} deleted` });
+    res.status(200).json({ message: `task ${id} deleted` });
   } catch (error) {
     console.warn(error);
     res.status(500).json({ controllerDeleteById: error });
