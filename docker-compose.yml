@@ -41,18 +41,3 @@ services:
       retries: 5
     cap_add:
       - SYS_NICE # Deve omitir alertas menores
-  # db_test:
-  #   image: mysql:8.0.21
-  #   platform: linux/x86_64 
-  #   container_name: db_test
-  #   ports:
-  #     - 3004:3306 # localmente o container db(MySQL) está escutando na porta 3004
-  #   environment:
-  #     - MYSQL_ROOT_PASSWORD=123456
-  #   restart: 'always'
-  #   healthcheck:
-  #     test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"] # Deve aguardar o banco ficar operacional
-  #     timeout: 10s
-  #     retries: 5
-  #   cap_add:
-  #     - SYS_NICE # Deve omitir alertas menores

@@ -13,7 +13,6 @@ const mocks = {
     };
     const response = { insertId: insertedId, dataValues };
     mockTasks.push(dataValues);
-    console.log(mockTasks);
     return response;
   },
   destroy: async (id) => {
