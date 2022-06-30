@@ -10,9 +10,10 @@
     "migrate": "npx sequelize-cli db:migrate",
     "seed": "npx sequelize-cli db:seed:all",
     "compose:up": "docker-compose up -d --build",
-    "compose:down": "(cd app && docker-compose down --remove-orphans",
-    "start": "npm run drop && npm run create && npm run migrate && npm run seed && npm run dev",
-    "start:test": "cross-env NODE_ENV=test npm run engage && npm run test",
+    "compose:down": "docker-compose down --remove-orphans",
+    "engage": "npm run drop && npm run create && npm run migrate && npm run seed && npm run dev",
+    "start": "npm run engage",
+    "start:test": "cross-env NODE_ENV=test npm run engage",
     "test": "cross-env NODE_ENV=test nyc mocha src/tests/**/*.test.js --exit"
   },
   "keywords": [],
