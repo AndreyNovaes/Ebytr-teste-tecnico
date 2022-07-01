@@ -4,7 +4,7 @@
  Criação de uma API REST utilizando javascript, nodeJS, express e sequelize(MySQL), com testes unitários e de integração.
 </p>
 
-# Ferramentas utilizadas :bookmark_tabs:
+# :bookmark_tabs: Ferramentas utilizadas 
 
 - Javascript;
 - NodeJS;
@@ -17,9 +17,9 @@
 - Dotenv para a configuração do banco de dados MySQL;
 
 
-# Como rodar na minha máquina 💻
+# 💻 Como rodar na minha máquina
 
-##  Com Docker e Docker-compose 🐳
+## 🐳 Com Docker e Docker-compose
 
 ### Clone o projeto e entre na pasta
 ```
@@ -35,7 +35,7 @@
 http://localhost:${PORT}
 ```
 
-## Localmente, sem o uso do Docker <br>
+## :desktop_computer: Localmente, sem o uso do Docker <br>
 
 ### Clone o projeto e entre na pasta
 
