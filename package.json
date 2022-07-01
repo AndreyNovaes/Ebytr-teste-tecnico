@@ -11,7 +11,7 @@
     "seed": "npx sequelize-cli db:seed:all",
     "compose:up": "docker-compose up -d --build",
     "compose:down": "docker-compose down --remove-orphans",
-    "engage": "npm run drop && npm run create && npm run migrate && npm run seed && npm run dev",
+    "engage": "npm run create && npm run migrate && npm run seed && npm run dev",
     "start": "npm run engage",
     "test": "nyc mocha src/tests/**/*.test.js --exit"
   },
