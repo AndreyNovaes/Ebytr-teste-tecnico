@@ -1,7 +1,7 @@
 const idExistsValidationDoc = {
   params: {
     id: {
-      type: 'string', wherePass: 'params/URL', required: true, minLength: 1, shouldExistInDB: true,
+      type: 'integer', wherePass: 'params/URL', required: true, minLength: 1, shouldExistInDB: true,
     },
   },
 };
@@ -22,7 +22,7 @@ const bodyValidationDoc = {
 const validationStatusDoc = {
   params: {
     status: {
-      type: 'string', wherePass: 'params/URL', required: true, statusOptions: ['pending', 'ongoing', 'finished'],
+      type: 'integer', wherePass: 'params/URL', required: true, statusOptions: ['pending', 'ongoing', 'finished'],
     },
   },
 };

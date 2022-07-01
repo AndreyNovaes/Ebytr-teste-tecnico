@@ -10,12 +10,9 @@ const getByIdModel = async (id) => {
   return task;
 };
 
-const createOneModel = async (name, description) => {
-  const newTaskCreated = await Tasks.create({ name, description, status: 'pending' });
-  return {
-    id: newTaskCreated.insertId,
-    ...newTaskCreated.dataValues,
-  };
+const createOneModel = async (name, description, status) => {
+  const task = await Tasks.create({ name, description, status });
+  return task;
 };
 
 const deleteByIdModel = async (id) => {
