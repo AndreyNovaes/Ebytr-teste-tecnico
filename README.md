@@ -2,13 +2,13 @@
 
 - [Descrição do projeto](#descrição-do-projeto)
 
+- [Ferramentas utilizadas](#Ferramentas-utilizadas-:bookmark_tabs:)
+
+- [Como rodar na minha máquina](#Como-rodar-na-minha-máquina-💻)
+
 - [Funcionalidades](#funcionalidades)
 
-- [Ferramentas utilizadas](#ferramentas-utilizadas)
-
-- [Como rodar na minha máquina](#Como-rodar-na-minha-máquina)
-
-# Descrição do projeto
+# Descrição do projeto  
 
 <p align="justify">
  Criação de uma API REST utilizando javascript, nodeJS, express e sequelize(MySQL), com testes unitários e de integração.
