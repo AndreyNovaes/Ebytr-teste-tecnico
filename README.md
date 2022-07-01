@@ -14,7 +14,7 @@
  Criação de uma API REST utilizando javascript, nodeJS, express e sequelize(MySQL), com testes unitários e de integração.
 </p>
 
-# Ferramentas utilizadas
+# Ferramentas utilizadas :bookmark_tabs:
 
 - Javascript;
 - NodeJS;
@@ -31,18 +31,20 @@
 
 ## Localmente, sem o uso do Docker <br>
 
-### Clone o projeto
+### Clone o projeto e entre na pasta
 
 ```
  git clone https://github.com/AndreyNovaes/Ebytr-back-end-teste-tecnico.git
+ cd Ebytr-back-end-teste-tecnico
 ```
+
 ### Instale as dependências
 
 ```
  npm install
 ```
 
-### Rodar a aplicação
+### Rode a aplicação
 
 ```
  npm start
@@ -53,22 +55,12 @@
 http://localhost:${PORT}
 ```
 
-## Como testar a aplicação localmente
-
-### Suba o banco de testes
-```
-npm run start:test
-```
-### Teste a aplicação
-```
-npm test
-```
-
 ##  Com Docker e Docker-compose 🐳
 
-### Clone o projeto
+### Clone o projeto e entre na pasta
 ```
- git clone https://github.com/AndreyNovaes/Ebytr-back-end-teste-tecnico.git
+ git clone https://github.com/AndreyNovaes/Ebytr-back-end-teste-tecnico.git]
+ cd Ebytr-back-end-teste-tecnico
 ```
 ### Suba a aplicação com o compose
 ```
@@ -78,15 +70,12 @@ npm test
 ```
 http://localhost:${PORT}
 ```
-## Como testar a aplicação com docker
-
 
 # Funcionalidades
 
-- HTTP GET rota "/" => Documentação da API. <br>
+- HTTP GET rota "/" documentação da API;
 - HTTP GET rota "/tasks" => Listagem de todas tasks. <br>
 - HTTP GET rota "/tasks/:id" => Listagem de uma task específica. <br>
 - HTTP DELETE rota "/tasks/:id" => Deleção de uma task já existente. <br>
 - HTTP PUT rota "/tasks/:id" => Update das características name e descrição de uma task. <br>
 - HTTP PUT rota "/tasks/:id/:status" => Update da característica de status de uma task. <br>
-

@@ -1,5 +1,5 @@
 const { StatusCodes: { OK, CREATED } } = require('http-status-codes');
-const tasksService = require('./Tasks.service');
+const tasksService = require('./Tasks.services');
 
 const getAll = async (req, res) => {
   const tasks = await tasksService.getAll();
