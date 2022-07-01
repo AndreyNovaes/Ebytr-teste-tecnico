@@ -9,17 +9,24 @@
 - Javascript;
 - NodeJS;
 - Express;
+- Docker;
+- Docker-compose;
 - Sequelize(dialect: MySQL);
 - Sequelize-cli;
 - Testes unitários(mocha, chai, sinon, sequelize-test-helpers);
-- Testes de integração(nyc, mocha, chai, chai-http, database para testes);
+- Testes de integração(nyc, mocha, chai, chai-http, mocks);
 - Eslint-config-airbnb-base;
+- Nodemon;
 - Dotenv para a configuração do banco de dados MySQL;
 
 
 # 💻 Como rodar na minha máquina
 
 ## 🐳 Com Docker e Docker-compose
+
+### Dependências mínimas para rodar a aplicação com docker
+  - Docker: `Docker version 20.10.14`
+  - Docker-compose: `Docker-compose version 1.29.2`
 
 ### Clone o projeto e entre na pasta
 ```
