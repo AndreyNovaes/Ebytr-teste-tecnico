@@ -23,7 +23,7 @@
 
 ### Clone o projeto e entre na pasta
 ```
- git clone https://github.com/AndreyNovaes/Ebytr-back-end-teste-tecnico.git]
+ git clone https://github.com/AndreyNovaes/Ebytr-back-end-teste-tecnico.git
  cd Ebytr-back-end-teste-tecnico
 ```
 ### Instale as dependências
