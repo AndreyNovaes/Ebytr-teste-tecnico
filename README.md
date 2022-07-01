@@ -26,6 +26,14 @@
  git clone https://github.com/AndreyNovaes/Ebytr-back-end-teste-tecnico.git]
  cd Ebytr-back-end-teste-tecnico
 ```
+### Instale as dependências
+```
+ npm install
+```
+### Teste a aplicação
+```
+ npm test
+```
 ### Suba a aplicação com o compose
 ```
  npm run compose:up
@@ -48,6 +56,11 @@ http://localhost:${PORT}
 
 ```
  npm install
+```
+
+### Teste a aplicação
+```
+ npm test
 ```
 
 ### Preencha o .env, use esse commando para cria-lo, entre no arquivo .env e preencha com as informações do seu banco de dados MySQL local
