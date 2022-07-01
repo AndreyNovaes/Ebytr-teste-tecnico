@@ -19,14 +19,18 @@ const mocks = {
     mockTasks.splice(mockTasks.findIndex((task) => task.id === id), 1);
     return { message: `task ${id} deleted` };
   },
-  // update: async (id, body) => {
-  //   mockTasks[mockTasks.findIndex((task) => task.id === id)] = body;
-  //   return mockTasks;
-  // },
-  // updateStatusById: async (id, status) => {
-  //   mockTasks[mockTasks.findIndex((task) => task.id === id)].status = status;
-  //   return mockTasks;
-  // },
+  update: async (id, name, description) => {
+    const taskSelected = mockTasks.find((task) => task.id === id);
+    taskSelected.name = name;
+    taskSelected.description = description;
+    taskSelected.updatedAt = new Date();
+    return { message: `task ${id} updated` };
+  },
+  updateStatusById: async (id, status) => {
+    const taskSelected = mockTasks.findIndex((task) => task.id === id);
+    mockTasks[taskSelected].status = status;
+    return { message: `task ${id} updated to ${status}` };
+  },
 };
 
 module.exports = mocks;
