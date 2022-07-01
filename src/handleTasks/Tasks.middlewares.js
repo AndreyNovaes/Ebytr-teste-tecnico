@@ -1,6 +1,16 @@
 const { StatusCodes: { NOT_FOUND, BAD_REQUEST } } = require('http-status-codes');
 const { Tasks } = require('../database/models');
 
+// const errorMiddleware = (err, req, res, next) => {
+//   if (err.name === 'ValidationError') {
+//     return res.status(BAD_REQUEST).json({
+//       message: err.message,
+//       errors: err.errors,
+//     });
+//   }
+//   return next(err);
+// };
+
 const getByIdValidation = async (req, res, next) => {
   const { id } = req.params;
   const task = await Tasks.findByPk(id);
@@ -50,15 +60,6 @@ const createOneValidation = async (req, res, next) => {
   }
   return next();
 };
-
-// const errorMiddleware = (err, _req, res, next) => {
-//   if (err instanceof Error) {
-//     const { httpStatus, message } = err;
-
-//     return res.status(httpStatus).json({ message });
-//   }
-//   return res.status(500).json({ error: { message: err.message } });
-// };
 
 module.exports = {
   updateValidation,
