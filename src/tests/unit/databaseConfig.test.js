@@ -1,4 +1,4 @@
-import { describe, it } from 'mocha';
+const { describe, it } = require('mocha');
 
 const { expect } = require('chai');
 const indexModel = require('../../database/models/index');

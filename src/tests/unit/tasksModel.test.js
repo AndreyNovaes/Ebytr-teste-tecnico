@@ -1,7 +1,7 @@
 const {
   sequelize, dataTypes, checkModelName, checkPropertyExists,
 } = require('sequelize-test-helpers');
-const { describe, context } = require('mocha');
+const { describe, Context } = require('mocha');
 const tasksModel = require('../../database/models/tasks');
 
 describe('model tasks', () => {
@@ -10,7 +10,7 @@ describe('model tasks', () => {
 
   checkModelName(tasks, 'tasks');
 
-  context('tests the model tasks properties', () => {
+  Context('tests the model tasks properties', () => {
     ['name', 'description', 'status'].forEach(checkPropertyExists(tasks));
   });
 });
