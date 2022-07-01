@@ -25,8 +25,8 @@
 ## 🐳 Com Docker e Docker-compose
 
 ### Dependências mínimas para rodar a aplicação com docker
-  - Docker: `Docker version 20.10.14`
-  - Docker-compose: `Docker-compose version 1.29.2`
+  - Docker: `Versão usada => Docker version 20.10.14`
+  - Docker-compose: `Versão usada => Docker-compose version 1.29.2`
 
 ### Clone o projeto e entre na pasta
 ```
@@ -51,6 +51,9 @@ http://localhost:${PORT}
 ```
 
 ## :desktop_computer: Localmente, sem o uso do Docker <br>
+
+### Dependências mínimas para rodar a aplicação com docker
+  - NodeJS: `Versão usada => NodeJS version v16.14.2`
 
 ### Clone o projeto e entre na pasta
 
