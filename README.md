@@ -44,6 +44,12 @@
  npm install
 ```
 
+### Preencha o .env, use esse commando para cria-lo, entre no arquivo .env e preencha com as informações do seu banco de dados MySQL local
+
+```
+ cp .env.example .env
+```
+
 ### Rode a aplicação
 
 ```
