@@ -1,13 +1,19 @@
+import { describe, it } from 'mocha';
+
 const { expect } = require('chai');
-const indexModel = require('../../database/models/index')
+const indexModel = require('../../database/models/index');
 
 require('dotenv').config();
 
 const { sequelize: { config } } = indexModel;
 
 describe('tests if the database has received the environment variables', () => {
-  const { MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD, MYSQL_PORT } = process.env; 
-  const { username, password, host, port } = config;
+  const {
+    MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD, MYSQL_PORT,
+  } = process.env;
+  const {
+    username, password, host, port,
+  } = config;
   it('MYSQL_HOST .env envionment variable should be the same as config.host config', () => {
     expect(MYSQL_HOST).to.equal(host);
   });
