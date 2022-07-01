@@ -1,16 +1,16 @@
 const { Tasks } = require('../database/models');
 
-const getAll = async () => {
+const getAllModel = async () => {
   const tasks = await Tasks.findAll();
   return tasks;
 };
 
-const getById = async (id) => {
+const getByIdModel = async (id) => {
   const task = await Tasks.findByPk(id);
   return task;
 };
 
-const createOne = async (name, description) => {
+const createOneModel = async (name, description) => {
   const newTaskCreated = await Tasks.create({ name, description, status: 'pending' });
   return {
     id: newTaskCreated.insertId,
@@ -18,26 +18,26 @@ const createOne = async (name, description) => {
   };
 };
 
-const deleteById = async (id) => {
+const deleteByIdModel = async (id) => {
   const task = await Tasks.destroy({ where: { id } });
   return task;
 };
 
-const updateStatusById = async (id, status) => {
+const updateStatusByIdModel = async (id, status) => {
   const task = await Tasks.update({ status }, { where: { id } });
   return task;
 };
 
-const updateById = async (id, name, description) => {
+const updateByIdModel = async (id, name, description) => {
   const task = await Tasks.update({ name, description }, { where: { id } });
   return task;
 };
 
 module.exports = {
-  getAll,
-  getById,
-  createOne,
-  deleteById,
-  updateStatusById,
-  updateById,
+  getAllModel,
+  getByIdModel,
+  createOneModel,
+  deleteByIdModel,
+  updateStatusByIdModel,
+  updateByIdModel,
 };

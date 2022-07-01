@@ -1,20 +1,21 @@
 const { Router } = require('express');
 const tasksController = require('./Tasks.controllers');
 const {
-  updateStatusValidation,
-  updateValidation,
-  createOneValidation,
-  getByIdValidation,
+  idParamsValidation,
+  statusParamsValidation,
+  nameDescriptionBodyValidation,
+  nameBodyValidation,
+  descriptionBodyValidation,
 } = require('./Tasks.middlewares');
 
 const router = Router();
 
 router
   .get('/', tasksController.getAll)
-  .get('/:id', getByIdValidation, tasksController.getById)
-  .post('/', createOneValidation, tasksController.createOne)
+  .get('/:id', tasksController.getById)
+  .post('/', nameDescriptionBodyValidation, nameBodyValidation, descriptionBodyValidation, tasksController.createOne)
   .delete('/:id', tasksController.deleteById)
-  .put('/:id/:status', updateStatusValidation, tasksController.updateStatusById)
-  .put('/:id', updateValidation, tasksController.updateById);
+  .put('/:id/:status', idParamsValidation, statusParamsValidation, tasksController.updateStatusById)
+  .put('/:id', idParamsValidation, nameDescriptionBodyValidation, nameBodyValidation, descriptionBodyValidation, tasksController.updateById);
 
 module.exports = router;
