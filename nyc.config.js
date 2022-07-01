@@ -4,6 +4,7 @@ module.exports = {
     'src/tests',
     'src/database/migrations',
     'src/database/seeders',
+    'src/database/config/config.js',
     'src/database/models/index.js',
   ],
   include: ['src/**/*.js'],
