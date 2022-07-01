@@ -1,4 +1,4 @@
-# Descrição do projeto :books:
+# :books: Descrição do projeto
 
 <p align="justify">
  Criação de uma API REST utilizando javascript, nodeJS, express e sequelize(MySQL), com testes unitários e de integração.
