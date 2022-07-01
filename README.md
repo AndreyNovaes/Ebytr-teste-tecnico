@@ -1,14 +1,4 @@
-# Tópicos 
-
-- [Descrição do projeto](#descrição-do-projeto)
-
-- [Ferramentas utilizadas](#Ferramentas-utilizadas-:bookmark_tabs:)
-
-- [Como rodar na minha máquina](#Como-rodar-na-minha-máquina-💻)
-
-- [Funcionalidades](#funcionalidades)
-
-# Descrição do projeto  
+# Descrição do projeto :books:
 
 <p align="justify">
  Criação de uma API REST utilizando javascript, nodeJS, express e sequelize(MySQL), com testes unitários e de integração.
@@ -28,6 +18,22 @@
 
 
 # Como rodar na minha máquina 💻
+
+##  Com Docker e Docker-compose 🐳
+
+### Clone o projeto e entre na pasta
+```
+ git clone https://github.com/AndreyNovaes/Ebytr-back-end-teste-tecnico.git]
+ cd Ebytr-back-end-teste-tecnico
+```
+### Suba a aplicação com o compose
+```
+ npm run compose:up
+```
+### A aplicação vai estar rodando no localhost na porta 3001, definida no docker-compose.yml
+```
+http://localhost:${PORT}
+```
 
 ## Localmente, sem o uso do Docker <br>
 
@@ -57,22 +63,6 @@
 ```
 
 ### A aplicação estará rodando no localhost com a variável de ambiente PORT
-```
-http://localhost:${PORT}
-```
-
-##  Com Docker e Docker-compose 🐳
-
-### Clone o projeto e entre na pasta
-```
- git clone https://github.com/AndreyNovaes/Ebytr-back-end-teste-tecnico.git]
- cd Ebytr-back-end-teste-tecnico
-```
-### Suba a aplicação com o compose
-```
- npm run compose:up
-```
-### A aplicação vai estar rodando no localhost na porta 3001, definida no docker-compose.yml
 ```
 http://localhost:${PORT}
 ```
