@@ -1,4 +1,5 @@
 const mockTasks = require('./mockTasks.json');
+require('dotenv').config();
 
 const mocks = {
   findAll: async () => mockTasks,

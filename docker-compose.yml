@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   backend:
-    image: node:16-alpine
+    build: ./
     container_name: ebitr_backend
     platform: linux/x86_64
     restart: 'always'
@@ -16,16 +16,11 @@ services:
       - MYSQL_USER=root
       - MYSQL_PASSWORD=123456
       - MYSQL_HOST=db
-      - DB_NAME=ebitr_db
       - MYSQL_PORT=3306
     healthcheck:
       test: ["CMD", "lsof", "-t", "-i:3001"] # Caso utilize outra porta interna para o back, altere ela aqui também
       timeout: 10s
       retries: 5
-    volumes:
-      - ./:/app
-    working_dir: /app
-    command: bash -c "npm install && npm start"
   db:
     image: mysql:8.0.21
     platform: linux/x86_64 
