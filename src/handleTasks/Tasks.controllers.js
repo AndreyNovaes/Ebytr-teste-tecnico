@@ -10,10 +10,17 @@ const {
 
 const getAll = async (req, res) => {
   const tasks = await getAllService();
+  if (tasks.length === 0) {
+    return res.status(NOT_FOUND).json({
+      success: true,
+      code: OK,
+      message: 'no tasks found',
+    });
+  }
   return res.status(OK).json({
     success: true,
     code: OK,
-    response: tasks,
+    response: 'tasks',
   });
 };
 
