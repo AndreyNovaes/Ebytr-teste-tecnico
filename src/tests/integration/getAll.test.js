@@ -16,10 +16,10 @@ chai.use(chaiHttp);
 
 const { expect } = chai;
 
-describe('HTTP GET route /tasks', () => {
+describe.only('HTTP GET route /tasks', () => {
   before(async () => { sinon.stub(Tasks, 'findAll').returns(mocks.findAll()); });
 
-  after(() => { Tasks.findAll.restore(); });
+  after(() => { sinon.restore(); });
 
   describe('test the return with the mock of findAll', () => {
     let response;

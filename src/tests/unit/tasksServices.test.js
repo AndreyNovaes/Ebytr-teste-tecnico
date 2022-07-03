@@ -4,11 +4,11 @@ const chaiAsPromised = require('chai-as-promised');
 const sinon = require('sinon');
 const { expect } = require('chai');
 const tasksModel = require('../../handleTasks/Tasks.model');
-const tasksService = require('../../handleTasks/Tasks.service');
+const tasksService = require('../../handleTasks/Tasks.services');
 
 chai.use(chaiAsPromised);
 
-describe.only('src/handleTasks/Tasks.service', () => {
+describe('src/handleTasks/Tasks.service', () => {
   beforeEach(sinon.restore);
   describe('getAll', () => {
     it('falha quando acontece um erro inesperado', () => {

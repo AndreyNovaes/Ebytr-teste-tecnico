@@ -8,7 +8,7 @@ const tasksModel = require('../../handleTasks/Tasks.model');
 
 chai.use(chaiAsPromised);
 
-describe.only('src/handleTasks/Tasks.model', () => {
+describe('src/handleTasks/Tasks.model', () => {
   beforeEach(sinon.restore);
   describe('getAll', () => {
     it('falha quando acontece um erro inesperado', () => {

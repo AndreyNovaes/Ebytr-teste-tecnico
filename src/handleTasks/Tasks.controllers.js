@@ -10,9 +10,9 @@ const {
   deleteByIdService,
   updateStatusByIdService,
   updateByIdService,
-} = require('./Tasks.service');
+} = require('./Tasks.services');
 
-const getAll = async (req, res) => {
+const getAllController = async (req, res) => {
   const tasks = await getAllService();
   return res.status(OK).json({
     success: true,
@@ -21,7 +21,7 @@ const getAll = async (req, res) => {
   });
 };
 
-const getById = async (req, res) => {
+const getByIdController = async (req, res) => {
   const { id } = req.params;
   const task = await getByIdService(id);
   if (!task) {
@@ -34,7 +34,7 @@ const getById = async (req, res) => {
   return res.status(OK).json({ success: true, code: OK, response: task });
 };
 
-const createOne = async (req, res) => {
+const createOneController = async (req, res) => {
   const { name, description } = req.body;
   const newTaskCreated = await createOneService(name, description);
   return res.status(CREATED).json({
@@ -44,7 +44,7 @@ const createOne = async (req, res) => {
   });
 };
 
-const deleteById = async (req, res) => {
+const deleteByIdController = async (req, res) => {
   const { id } = req.params;
   const isTaskFindAndDeleted = await deleteByIdService(id);
   if (!isTaskFindAndDeleted) {
@@ -53,7 +53,7 @@ const deleteById = async (req, res) => {
   return res.status(OK).json({ success: true, code: OK, message: `task ${id} deleted` });
 };
 
-const updateStatusById = async (req, res) => {
+const updateStatusByIdController = async (req, res) => {
   const status = req.url.split('/').pop();
   const { id } = req.params;
   const isUpdateSucessfully = await updateStatusByIdService(id, status);
@@ -64,10 +64,14 @@ const updateStatusById = async (req, res) => {
       message: `Task with id ${id} not found`,
     });
   }
-  return res.status(OK).json({ message: `task ${id} updated to status ${status}` });
+  return res.status(OK).json({
+    success: true,
+    code: OK,
+    message: `task ${id} updated to status ${status}`,
+  });
 };
 
-const updateById = async (req, res) => {
+const updateByIdController = async (req, res) => {
   const { id } = req.params;
   const { name, description } = req.body;
   const isUpdateSucessfully = await updateByIdService(id, name, description);
@@ -78,14 +82,18 @@ const updateById = async (req, res) => {
       message: `Task with id ${id} not found`,
     });
   }
-  return res.status(OK).json({ message: `task ${id} updated` });
+  return res.status(OK).json({
+    success: true,
+    code: OK,
+    message: `task ${id} updated`,
+  });
 };
 
 module.exports = {
-  getAll,
-  getById,
-  createOne,
-  deleteById,
-  updateStatusById,
-  updateById,
+  getAllController,
+  getByIdController,
+  createOneController,
+  deleteByIdController,
+  updateStatusByIdController,
+  updateByIdController,
 };

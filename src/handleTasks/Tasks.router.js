@@ -12,11 +12,43 @@ const {
 const router = Router();
 
 router
-  .get('/', tasksController.getAll)
-  .get('/:id', idParamsExists, idParamsIsValid, tasksController.getById)
-  .post('/', nameDescriptionBodyValidation, nameBodyValidation, descriptionBodyValidation, tasksController.createOne)
-  .delete('/:id', idParamsExists, idParamsIsValid, tasksController.deleteById)
-  .put('/:id/:status', idParamsExists, idParamsIsValid, statusParamsValidation, tasksController.updateStatusById)
-  .put('/:id', idParamsExists, idParamsIsValid, nameDescriptionBodyValidation, nameBodyValidation, descriptionBodyValidation, tasksController.updateById);
+  .get(
+    '/',
+    tasksController.getAllController,
+  )
+  .get(
+    '/:id',
+    idParamsIsValid,
+    tasksController.getByIdController,
+  )
+  .post(
+    '/',
+    nameDescriptionBodyValidation,
+    nameBodyValidation,
+    descriptionBodyValidation,
+    tasksController.createOneController,
+  )
+  .delete(
+    '/:id',
+    idParamsExists,
+    idParamsIsValid,
+    tasksController.deleteByIdController,
+  )
+  .put(
+    '/:id/:status',
+    idParamsExists,
+    idParamsIsValid,
+    statusParamsValidation,
+    tasksController.updateStatusByIdController,
+  )
+  .put(
+    '/:id',
+    idParamsExists,
+    idParamsIsValid,
+    nameDescriptionBodyValidation,
+    nameBodyValidation,
+    descriptionBodyValidation,
+    tasksController.updateByIdController,
+  );
 
 module.exports = router;
