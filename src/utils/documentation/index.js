@@ -1,9 +1,8 @@
 const { idExistsValidationDoc, bodyValidationDoc, validationStatusDoc } = require('./docAncillary');
-const getAllResponses = require('../responses/getAll');
 
 module.exports = {
   Documentation: {
-    getAll: { route: '/tasks', method: 'get', ...getAllResponses },
+    getAll: { route: '/tasks', method: 'get' },
     getById: { route: '/tasks/:id', method: 'get', validation: idExistsValidationDoc },
     createOne: { route: '/tasks', method: 'post', validation: bodyValidationDoc },
     deleteById: { route: '/tasks/:id', method: 'delete', validation: idExistsValidationDoc },
