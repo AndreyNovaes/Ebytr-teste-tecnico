@@ -9,12 +9,20 @@ module.exports = {
     updateById: {
       route: '/tasks/:id',
       method: 'put',
-      validation: { params: idExistsValidationDoc.params, body: bodyValidationDoc.body },
+      validation: {
+        params: idExistsValidationDoc.params,
+        body: bodyValidationDoc.body,
+      },
     },
     updateStatusById: {
       route: '/tasks/:id/:status',
       method: 'put',
-      validation: { params: { ...idExistsValidationDoc.params, ...validationStatusDoc.params } },
+      validation: {
+        params: {
+          ...idExistsValidationDoc.params,
+          ...validationStatusDoc.params,
+        },
+      },
     },
   },
 };

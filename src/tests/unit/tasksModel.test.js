@@ -11,6 +11,6 @@ describe('model tasks', () => {
   checkModelName(tasks, 'tasks');
 
   Context('tests the model tasks properties', () => {
-    ['name', 'description', 'status'].forEach(checkPropertyExists(tasks));
+    ['name', 'description', 'status', 'createdAt', 'updatedAt'].forEach(checkPropertyExists(tasks));
   });
 });
