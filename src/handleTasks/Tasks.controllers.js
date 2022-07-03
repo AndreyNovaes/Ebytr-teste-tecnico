@@ -1,4 +1,8 @@
-const { StatusCodes: { OK, CREATED, NOT_FOUND } } = require('http-status-codes');
+const {
+  StatusCodes: {
+    OK, CREATED, NOT_FOUND, NO_CONTENT,
+  },
+} = require('http-status-codes');
 const {
   getAllService,
   getByIdService,
@@ -11,9 +15,9 @@ const {
 const getAll = async (req, res) => {
   const tasks = await getAllService();
   if (tasks.length === 0) {
-    return res.status(NOT_FOUND).json({
+    return res.status(NO_CONTENT).json({
       success: false,
-      code: NOT_FOUND,
+      code: NO_CONTENT,
       message: 'no tasks found',
     });
   }

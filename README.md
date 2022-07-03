@@ -52,7 +52,7 @@ http://localhost:${PORT}
 
 ## :desktop_computer: Localmente, sem o uso do Docker <br>
 
-### Dependências mínimas para rodar a aplicação com docker
+### Dependências mínimas para rodar a aplicação
   - NodeJS: `Versão usada => NodeJS version v16.14.2`
 
 ### Clone o projeto e entre na pasta
