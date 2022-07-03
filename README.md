@@ -92,7 +92,7 @@ http://localhost:${PORT}
 
 # Funcionalidades
 
-## 📚 Para ler a documentação do projeto pelo rota '/' pelo navegador é necessária a utilização do plugin JSON Viewer.
+## 📚 É recomendado a utilização do seu navagador com o plugin JSON Viewer para a leitura da documentação.
 [Link do JSON Viewer na chrome web store](https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh?hl=pt-BR)
 
 - HTTP GET rota "/" documentação da API;
