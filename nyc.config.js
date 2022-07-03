@@ -6,7 +6,7 @@ module.exports = {
     'src/database/seeders',
     'src/database/config/config.js',
     'src/database/models/index.js',
-    'utils/taskDoc.js',
+    'src/utils',
   ],
   include: ['src/**/*.js'],
 };
