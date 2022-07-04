@@ -12,30 +12,35 @@ chai.use(chaiHttp);
 
 const { expect } = chai;
 
-describe('HTTP GET route /tasks/:id', () => {
+describe.only('HTTP GET route /tasks/:id', () => {
   const id = '1';
   before(async () => { sinon.stub(Tasks, 'findByPk').returns(mocks.findByPk(id)); });
 
   after(() => { Tasks.findByPk.restore(); });
 
   describe('test the return with the mock of findOne', () => {
-    let response;
+    let chaiResponse;
     before(async () => {
-      response = await chai
+      chaiResponse = await chai
         .request(App)
         .get(`/tasks/${id}`);
     });
 
     it('should return a status of 200', () => {
-      expect(response).to.have.status(200);
+      expect(chaiResponse).to.have.status(200);
     });
 
     it('should return an object', () => {
-      expect(response.body).to.be.an('object');
+      const { body } = chaiResponse;
+      expect(body).to.be.an('object');
+      expect(body).to.have.property('success');
+      expect(body).to.have.property('code');
+      expect(body).to.have.property('response');
     });
 
     it('should return an object with this properties', () => {
-      expect(response.body).to.have.all.keys(
+      const { body } = chaiResponse;
+      expect(body.response.response).to.have.all.keys(
         'id',
         'name',
         'description',

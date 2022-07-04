@@ -10,11 +10,10 @@ const mocks = {
   },
   findByPk: async (id) => {
     const taskNeeded = mockTasks.find((task) => task.id === id)
-    return {
-      success: true,
-      code: 200,
+    const res = {
       response: taskNeeded,
-    }
+  }
+  return res;
   },
   create: async (name, description) => {
     const insertedId = String(mockTasks.length + 1);
@@ -27,8 +26,6 @@ const mocks = {
     const response = { insertId: insertedId, dataValues };
     mockTasks.push(dataValues);
     return {
-      success: true,
-      code: 201,
       response,
     }
   },
