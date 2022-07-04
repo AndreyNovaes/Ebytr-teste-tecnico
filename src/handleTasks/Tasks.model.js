@@ -1,8 +1,21 @@
 const { Tasks } = require('../database/models');
 
-const getAllModel = async () => {
-  const tasks = await Tasks.findAll();
-  return tasks;
+const getAllModel = async (query) => {
+  // filter can be name(alphabetically), status(by status), or createdAt(by creation date)
+  // order can be asc(ascending) or desc(descending)
+  if (query.filter && query.order) {
+    const { filter, order } = query;
+    return Tasks.findAll({
+      order: [[filter, order]],
+    });
+  }
+  if (query.filter) {
+    const { filter } = query;
+    return Tasks.findAll({
+      order: [[filter, 'asc']],
+    });
+  }
+  return Tasks.findAll();
 };
 
 const getByIdModel = async (id) => {

@@ -62,6 +62,22 @@ const descriptionBodyValidation = async (req, res, next) => {
   return next();
 };
 
+const queryFilterIsValid = async (req, res, next) => {
+  const { filter } = req.query;
+  if (filter && !['name', 'description', 'status', 'createdAt', 'updatedAt'].includes(filter)) {
+    return res.status(BAD_REQUEST).json({ message: 'invalid filter' });
+  }
+  return next();
+};
+
+const queryOrderIsValid = async (req, res, next) => {
+  const { order } = req.query;
+  if (order && !['asc', 'desc'].includes(order)) {
+    return res.status(BAD_REQUEST).json({ message: 'invalid order' });
+  }
+  return next();
+};
+
 module.exports = {
   idParamsExists,
   idParamsIsValid,
@@ -69,4 +85,6 @@ module.exports = {
   nameDescriptionBodyValidation,
   nameBodyValidation,
   descriptionBodyValidation,
+  queryFilterIsValid,
+  queryOrderIsValid,
 };

@@ -13,7 +13,7 @@ const {
 } = require('./Tasks.services');
 
 const getAllController = async (req, res) => {
-  const tasks = await getAllService();
+  const tasks = await getAllService(req.query);
   return res.status(OK).json({
     success: true,
     code: OK,

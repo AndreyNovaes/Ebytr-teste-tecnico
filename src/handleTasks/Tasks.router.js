@@ -7,6 +7,8 @@ const {
   nameDescriptionBodyValidation,
   nameBodyValidation,
   descriptionBodyValidation,
+  queryFilterIsValid,
+  queryOrderIsValid,
 } = require('./Tasks.middlewares');
 
 const router = Router();
@@ -14,6 +16,8 @@ const router = Router();
 router
   .get(
     '/',
+    queryFilterIsValid,
+    queryOrderIsValid,
     tasksController.getAllController,
   )
   .get(

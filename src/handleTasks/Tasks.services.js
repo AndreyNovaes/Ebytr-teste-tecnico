@@ -7,8 +7,8 @@ const {
   updateByIdModel,
 } = require('./Tasks.model');
 
-const getAllService = async () => {
-  const tasks = await getAllModel();
+const getAllService = async (query) => {
+  const tasks = await getAllModel(query);
   return tasks;
 };
 
