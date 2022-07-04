@@ -13,7 +13,7 @@ chai.use(chaiHttp);
 
 const { expect } = chai;
 
-describe.only('HTTP POST route /tasks', () => {
+describe('HTTP POST route /tasks', () => {
   const correctName = 'Correct name';
   const correctDescription = 'Correct description';
 
