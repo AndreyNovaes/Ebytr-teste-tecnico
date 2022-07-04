@@ -10,13 +10,14 @@ export const getAll = async () => {
 };
 
 export const getById = async (id) => {
+  console.log(baseURL);
   const response = await api.get(`/${id}`);
   return response.data;
 };
 
 export const createOne = async (data) => {
-  const response = await api.post('/', data);
-  return response.data;
+  const response = await api.post('/tasks', data);
+  return response;
 };
 
 export const updateById = async (id, data) => {
