@@ -22,7 +22,7 @@ describe('HTTP GET route /tasks', () => {
   after(() => { sinon.restore(); });
 
   describe('test the return with the mock of findAll', () => {
-    let chaiResponse
+    let chaiResponse;
     before(async () => {
       chaiResponse = await chai
         .request(App)

@@ -13,7 +13,7 @@ chai.use(chaiHttp);
 
 const { expect } = chai;
 
-describe('HTTP POST route /tasks', () => {
+describe.only('HTTP POST route /tasks', () => {
   const correctName = 'Correct name';
   const correctDescription = 'Correct description';
 
@@ -22,35 +22,28 @@ describe('HTTP POST route /tasks', () => {
   });
 
   after(() => {
-    Tasks.create.restore();
+    sinon.restore();
   });
 
   describe('test the return with the mock of create', () => {
-    let response;
+    let chaiResponse;
     before(async () => {
-      response = await chai
+      chaiResponse = await chai
         .request(App)
         .post('/tasks')
         .send({ name: correctName, description: correctDescription });
     });
 
     it('should return a status of 201', () => {
-      expect(response).to.have.status(201);
+      expect(chaiResponse).to.have.status(201);
     });
 
     it('should return an object', () => {
-      expect(response.body).to.be.an('object');
-    });
-
-    it('should return an object with this properties', () => {
-      expect(response.body).to.have.all.keys(
-        'id',
-        'name',
-        'description',
-        'status',
-        'createdAt',
-        'updatedAt',
-      );
+      const { body } = chaiResponse;
+      expect(body).to.be.an('object');
+      expect(body).to.have.property('success');
+      expect(body).to.have.property('code');
+      expect(body).to.have.property('response');
     });
   });
 });

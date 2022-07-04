@@ -16,7 +16,7 @@ chai.use(chaiHttp);
 
 const { expect } = chai;
 
-describe('HTTP delete route /tasks/:id', () => {
+describe.only('HTTP delete route /tasks/:id', () => {
   const validId = '4';
   before(async () => {
     sinon.stub(Tasks, 'destroy').returns(await mocks.destroy(validId));
