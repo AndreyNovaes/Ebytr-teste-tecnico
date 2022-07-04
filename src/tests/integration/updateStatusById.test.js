@@ -42,7 +42,7 @@ describe('HTTP PUT route /tasks/:id/:status', () => {
     });
 
     it('should return an object with this properties', () => {
-      expect(response.body).to.have.property('message').equal(`task ${id} updated to ${status}`);
+      expect(response.body).to.have.property('message').equal(`task ${id} updated to status ${status}`);
     });
   });
 });
