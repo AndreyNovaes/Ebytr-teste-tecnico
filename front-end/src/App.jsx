@@ -5,12 +5,15 @@ import {
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './css/ColorModeSwitcher';
 import TaskCreator from './components/TaskCreator';
+import Tasks from './components/Tasks';
 
 function App() {
   return (
     <ChakraProvider theme={theme}>
       <ColorModeSwitcher />
       <TaskCreator />
+      <Tasks />
+
     </ChakraProvider>
   );
 }

@@ -1,24 +1,18 @@
 import React from 'react';
-import { Button, FormControl, FormHelperText, FormLabel, Icon, IconButton, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure } from '@chakra-ui/react';
-import { AddIcon, DeleteIcon, EditIcon } from '@chakra-ui/icons';
+import { Button, Flex, FormControl, FormHelperText, FormLabel, Icon, IconButton, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure } from '@chakra-ui/react';
+import { AddIcon } from '@chakra-ui/icons';
 import { createOne } from '../services/requests';
 
 export default function HandleTaskCreate() {
   const { onOpen, isOpen, onClose } = useDisclosure();
-  const onSubmitCreateTask = (event) => {
-    event.preventDefault();
-    const body = {
-      name: event.target.name,
-      description: event.target.description,
-    };
-    console.log(body);
-    console.log(event.target);
-    createOne(body);
-    onClose();
+  const [name, setName] = React.useState('');
+  const [description, setDescription] = React.useState('');
+  const onSubmitCreateTask = () => {
+    createOne({ name, description });
   }
 
   return (
-    <>
+    <Flex justify="center" align="center">
       <Button leftIcon={<AddIcon/>} onClick={onOpen}>Criar Nova Tarefa</Button>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
@@ -33,8 +27,8 @@ export default function HandleTaskCreate() {
             >
               <FormControl>
                 <FormLabel>Crie uma nova Tarefa </FormLabel>
-                <Input required type="text" placeholder='Nome da sua tarefa' />
-                <Input required type="text" placeholder='Descrição da sua tarefa' />
+                <Input onChange={(e) => setName(e.target.value)} required type="text" placeholder='Nome da sua tarefa' />
+                <Input onChange={(e) => setDescription(e.target.value)} required type="text" placeholder='Descrição da sua tarefa' />
                 <FormHelperText>
                   É necessário preencher os dois campos
                 </FormHelperText>
@@ -49,6 +43,6 @@ export default function HandleTaskCreate() {
           </ModalFooter>
         </ModalContent>
       </Modal>
-    </>
+    </Flex>
   );
 }
