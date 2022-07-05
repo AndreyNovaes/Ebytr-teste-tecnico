@@ -35,10 +35,6 @@
  git clone https://github.com/AndreyNovaes/Ebytr-teste-tecnico.git
  cd Ebytr-teste-tecnico
 ```
-### Instale as dependências
-```
- npm install
-```
 ### Suba a aplicação com o compose
 ```
  npm run compose:up
@@ -50,6 +46,10 @@ http://localhost:3000
 ### O back-end vai estar rodando na porta 3001, definida no docker-compose
 ```
 http://localhost:3001
+```
+### O banco de dados vai estar rodando na porta 3002, definida no docker-compose
+```
+http://localhost:3002
 ```
 ## :desktop_computer: Localmente, sem o uso do Docker <br>
 
@@ -82,14 +82,19 @@ http://localhost:3001
 http://localhost:3001
 ```
 
-### Volte a pasta raiz do Ebytr-teste-tecnico e entre na pasta front-end e instale as dependências
+### abra um novo terminal e entre na pasta raiz do projeto
+  
+``` 
+ cd Ebytr-teste-tecnico
+```
+
+### Entre na pasta front-end e instale as dependências
 
 ```
- cd ..
  cd front-end
  npm install
 ```
-### Preencha o .env caso deseje usar uma porta diferente de 3000
+### Preencha o .env caso tenha mudado a porta da API
 ```
  cp .env.example .env
 ```
@@ -117,3 +122,27 @@ http://localhost:3001
 - HTTP DELETE rota "/tasks/:id" => Deleção de uma task já existente. <br>
 - HTTP PUT rota "/tasks/:id" => Update das características name e descrição de uma task. <br>
 - HTTP PUT rota "/tasks/:id/:status" => Update da característica de status de uma task. <br>
+
+# Como testar a aplicação
+
+## Back-end:
+
+### Na pasta back-end, rode o comando:
+```
+ npm test
+```
+
+### Na pasta raiz, rode o comando:
+```
+ npm run test:back-end
+```
+
+### Na pasta front-end, rode o comando:
+```
+ npm test
+```
+
+### Na pasta raiz, rode o comando:
+```
+ npm run test:front-end
+```
