@@ -4,9 +4,14 @@ const api = axios.create({
   baseURL: `http://localhost:${process.env.PORT || 3001}/tasks`,
 });
 
-export const getAll = async () => {
-  const axiosResponse = await api.get('/');
-  const { data } = axiosResponse;
+export const getAll = async (query) => {
+  if (query) {
+    const { orderBy, orderDirection } = query;
+    const queryUrl = `?filter=${orderBy}&order=${orderDirection}`;
+    const { data } = await api.get(`${queryUrl}`);
+    return data;
+  }
+  const { data } = await api.get();
   return data;
 };
 

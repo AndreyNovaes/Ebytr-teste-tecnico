@@ -15,12 +15,13 @@ import {
   ModalHeader,
   ModalOverlay,
   OrderedList,
+  Select,
   Spinner,
   useDisclosure,
 } from '@chakra-ui/react';
 import React, { useEffect } from 'react';
 import {
-  DeleteIcon, EditIcon, CheckIcon, CheckCircleIcon, CloseIcon, ArrowRightIcon,
+  DeleteIcon, EditIcon, CheckIcon, CheckCircleIcon, CloseIcon, ArrowRightIcon, Search2Icon,
 } from '@chakra-ui/icons';
 import {
   getAll, deleteById, updateById, updateStatusById,
@@ -33,15 +34,18 @@ export default function Tasks() {
   const [newName, setNewName] = React.useState('');
   const [newDescription, setNewDescription] = React.useState('');
   const [idToEdit, setIdToEdit] = React.useState('');
+  const [orderBy, setOrderBy] = React.useState('createdAt');
+  const [orderDirection, setOrderDirection] = React.useState('asc');
   const { onOpen, isOpen, onClose } = useDisclosure();
 
   const getAllTasks = async () => {
     try {
-      const tasksRequest = await getAll();
-      setTasks(tasksRequest.response);
+      const response = await getAll({ orderBy, orderDirection });
+      setTasks(response.response);
       setIsLoading(false);
     } catch (error) {
       setIsError(true);
+      setIsLoading(false);
     }
   };
 
@@ -80,9 +84,39 @@ export default function Tasks() {
   return (
     <Flex direction="column" align="center" justify="center">
       <Heading as="h1" size="xl">Tarefas</Heading>
+      <Flex direction="row" justify="space-between" align="center">
+        <FormControl>
+          <FormLabel htmlFor="order-by">Ordenar por</FormLabel>
+          <Select id="order-by" name="order-by" value={orderBy} onChange={(e) => setOrderBy(e.target.value)}>
+            <option value="name">Nome</option>
+            <option value="status">Status</option>
+            <option value="createdAt">Data de Criação</option>
+          </Select>
+        </FormControl>
+        <FormControl>
+          <FormLabel htmlFor="order-direction">Ordem</FormLabel>
+          <Select id="order-direction" name="order-direction" value={orderDirection} onChange={(e) => setOrderDirection(e.target.value)}>
+            <option value="asc">Ascendente</option>
+            <option value="desc">Descendente</option>
+          </Select>
+        </FormControl>
+        <FormControl>
+          <FormLabel
+            htmlFor="search"
+          >
+            Ordenar
+          </FormLabel>
+          <Button
+            leftIcon={<Search2Icon />}
+            onClick={getAllTasks}
+          >
+            Ordenar
+          </Button>
+        </FormControl>
+      </Flex>
       <OrderedList spacing={4}>
         {isLoading ? (<Spinner />) : (
-          tasks.map((task) => (
+          tasks && tasks.map((task) => (
             <ListItem key={task.id}>
               <Flex direction="row" align="center" justify="space-between">
                 <Flex direction="row" align="center" justify="center">
