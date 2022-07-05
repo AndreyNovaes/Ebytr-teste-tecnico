@@ -19,7 +19,7 @@
 - Testes de integração(nyc, mocha, chai, chai-http, mocks);
 - Eslint-config-airbnb-base;
 - Nodemon;
-- Dotenv para a configuração do banco de dados MySQL;
+- Dotenv para a configuração das variáveis de ambiente necessárias;
 
 
 # 💻 Como rodar na minha máquina
@@ -84,7 +84,7 @@ http://localhost:3001
 
 ### O back-end estará rodando na porta 3001
 ```
-http://localhost:${PORT}
+http://localhost:3001
 ```
 
 ### Volte a pasta raiz do Ebytr-teste-tecnico e entre na pasta front-end
@@ -101,13 +101,19 @@ http://localhost:${PORT}
 npm start
 ```
 
+### O front-end estará rodando na porta 3000
+```
+http://localhost:3000/
+```
+
 # Funcionalidades
 
 ## 📚 É recomendado a utilização do seu navagador com o plugin JSON Viewer para a leitura da documentação do back-end.
 [Link do JSON Viewer na chrome web store](https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh?hl=pt-BR)
 ```
 http://localhost:3001
-````
+```
+
 - HTTP GET rota "/" documentação da API;
 - HTTP GET rota "/tasks" => Listagem de todas tasks. <br>
 - HTTP GET rota "/tasks/:id" => Listagem de uma task específica. <br>
