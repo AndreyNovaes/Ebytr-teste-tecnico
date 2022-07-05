@@ -13,7 +13,6 @@ function App() {
       <ColorModeSwitcher />
       <TaskCreator />
       <Tasks />
-
     </ChakraProvider>
   );
 }

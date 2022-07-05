@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+require('dotenv').config();
+
 const api = axios.create({
   baseURL: `http://localhost:${process.env.PORT || 3001}/tasks`,
 });
@@ -37,15 +39,5 @@ export const deleteById = async (id) => {
 
 export const updateStatusById = async (id, status) => {
   const response = await api.put(`/${id}/${status}`);
-  return response.data;
-};
-
-export const getAllByStatus = async (status) => {
-  const response = await api.get(`/?filter=${status}`);
-  return response.data;
-};
-
-export const getAllByName = async (name) => {
-  const response = await api.get(`/?filter=${name}`);
   return response.data;
 };
