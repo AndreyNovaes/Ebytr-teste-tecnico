@@ -1,12 +1,14 @@
 # :books: Descrição do projeto
 
 <p align="justify">
- Criação de uma API REST utilizando javascript, nodeJS, express e sequelize(MySQL), com testes unitários e de integração.
+ Criação de aplicação de tarefas com front-end em ReactJS, estilizado com chakra UI e back-end em NodeJS.
 </p>
 
 # :bookmark_tabs: Ferramentas utilizadas 
 
 - Javascript;
+- ReactJS;
+- Chakra UI;
 - NodeJS;
 - Express;
 - Docker;
@@ -31,25 +33,24 @@
 ### Clone o projeto e entre na pasta
 ```
  git clone https://github.com/AndreyNovaes/Ebytr-back-end-teste-tecnico.git
- cd Ebytr-back-end-teste-tecnico
+ cd Ebytr-teste-tecnico
 ```
 ### Instale as dependências
 ```
  npm install
 ```
-### Teste a aplicação
-```
- npm test
-```
 ### Suba a aplicação com o compose
 ```
  npm run compose:up
 ```
-### A aplicação vai estar rodando no localhost na porta 3001, definida no docker-compose.yml
+### O front-end vai estar rodando na porta 3000, definida no docker-compose
 ```
-http://localhost:${PORT}
+http://localhost:3000
 ```
-
+### O back-end vai estar rodando na porta 3001, definida no docker-compose
+```
+http://localhost:3001
+```
 ## :desktop_computer: Localmente, sem o uso do Docker <br>
 
 ### Dependências mínimas para rodar a aplicação
@@ -59,7 +60,7 @@ http://localhost:${PORT}
 
 ```
  git clone https://github.com/AndreyNovaes/Ebytr-back-end-teste-tecnico.git
- cd Ebytr-back-end-teste-tecnico
+ cd Ebytr-teste-tecnico
 ```
 
 ### Instale as dependências
@@ -68,14 +69,10 @@ http://localhost:${PORT}
  npm install
 ```
 
-### Teste a aplicação
-```
- npm test
-```
-
-### Preencha o .env, use esse commando para cria-lo, entre no arquivo .env e preencha com as informações do seu banco de dados MySQL local
+### Preencha o .env, dentro da pasta back-end, use esse commando para cria-lo, entre no arquivo .env e preencha com as informações do seu banco de dados MySQL local
 
 ```
+ cd back-end
  cp .env.example .env
 ```
 
@@ -85,16 +82,32 @@ http://localhost:${PORT}
  npm start
 ```
 
-### A aplicação estará rodando no localhost com a variável de ambiente PORT
+### O back-end estará rodando na porta 3001
 ```
 http://localhost:${PORT}
 ```
 
+### Volte a pasta raiz do Ebytr-teste-tecnico e entre na pasta front-end
+```
+ cd ..
+ cd front-end
+```
+### Preencha o .env caso deseje usar uma porta diferente de 3000
+```
+ cp .env.example .env
+```
+### Rode a aplicação
+```
+npm start
+```
+
 # Funcionalidades
 
-## 📚 É recomendado a utilização do seu navagador com o plugin JSON Viewer para a leitura da documentação.
+## 📚 É recomendado a utilização do seu navagador com o plugin JSON Viewer para a leitura da documentação do back-end.
 [Link do JSON Viewer na chrome web store](https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh?hl=pt-BR)
-
+```
+http://localhost:3001
+````
 - HTTP GET rota "/" documentação da API;
 - HTTP GET rota "/tasks" => Listagem de todas tasks. <br>
 - HTTP GET rota "/tasks/:id" => Listagem de uma task específica. <br>

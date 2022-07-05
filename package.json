@@ -1,0 +1,23 @@
+{
+  "name": "ebytr-back-end-teste-tecnico",
+  "version": "1.0.0",
+  "description": "<p align=\"justify\">  Criação de uma API REST utilizando javascript, nodeJS, express e sequelize(MySQL), com testes unitários e de integração. </p>",
+  "main": "index.js",
+  "scripts": {
+    "test:backend": "cd backend && npm run test",
+    "test:frontend": "cd frontend && npm run test",
+    "compose:up": "docker-compose up -d --build",
+    "compose:down": "docker-compose down --remove-orphans"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreyNovaes/Ebytr-back-end-teste-tecnico.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndreyNovaes/Ebytr-back-end-teste-tecnico/issues"
+  },
+  "homepage": "https://github.com/AndreyNovaes/Ebytr-back-end-teste-tecnico#readme"
+}

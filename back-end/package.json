@@ -9,12 +9,10 @@
     "create": "npx sequelize-cli db:create",
     "migrate": "npx sequelize-cli db:migrate",
     "seed": "npx sequelize-cli db:seed:all",
-    "compose:up": "docker-compose up -d --build",
-    "compose:down": "docker-compose down --remove-orphans",
     "engage:prod": "npm run drop && npm run create && npm run migrate && npm run dev",
     "engage": "npm run create && npm run migrate && npm run seed && npm run dev",
     "start": "npm run engage:prod",
-    "test": "nyc mocha src/tests/**/*.test.js --exit"
+    "test": "nyc mocha src/tests/**/*.test.js --exit"  
   },
   "keywords": [],
   "author": "",
