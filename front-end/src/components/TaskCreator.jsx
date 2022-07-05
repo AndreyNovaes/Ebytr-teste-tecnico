@@ -34,7 +34,7 @@ export default function HandleTaskCreate() {
 
   return (
     <Flex justify="center" align="center">
-      <Button leftIcon={<AddIcon />} onClick={onOpen}>Criar Nova Tarefa</Button>
+      <Button id="open-modal" leftIcon={<AddIcon />} onClick={onOpen}>Criar Nova Tarefa</Button>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>

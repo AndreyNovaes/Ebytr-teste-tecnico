@@ -2,7 +2,22 @@ const { idExistsValidationDoc, bodyValidationDoc, validationStatusDoc } = requir
 
 module.exports = {
   Documentation: {
-    getAll: { route: '/tasks', method: 'get' },
+    getAll: {
+      route: '/tasks',
+      method: 'get',
+      queryParams: {
+        filter: {
+          type: 'string',
+          wherepass: 'params/URL',
+          example: '?filter={"status": "pending"}',
+        },
+        order: {
+          type: 'string',
+          wherepass: 'params/URL',
+          example: '?order={"createdAt": "desc"}',
+        },
+      },
+    },
     getById: { route: '/tasks/:id', method: 'get', validation: idExistsValidationDoc },
     createOne: { route: '/tasks', method: 'post', validation: bodyValidationDoc },
     deleteById: { route: '/tasks/:id', method: 'delete', validation: idExistsValidationDoc },
