@@ -56,16 +56,11 @@ http://localhost:3001
 ### Dependências mínimas para rodar a aplicação
   - NodeJS: `Versão usada => NodeJS version v16.14.2`
 
-### Clone o projeto e entre na pasta
+### Clone o projeto, entre na pasta e instale as dependências
 
 ```
  git clone https://github.com/AndreyNovaes/Ebytr-teste-tecnico.git
  cd Ebytr-teste-tecnico
-```
-
-### Instale as dependências
-
-```
  npm install
 ```
 
@@ -87,10 +82,12 @@ http://localhost:3001
 http://localhost:3001
 ```
 
-### Volte a pasta raiz do Ebytr-teste-tecnico e entre na pasta front-end
+### Volte a pasta raiz do Ebytr-teste-tecnico e entre na pasta front-end e instale as dependências
+
 ```
  cd ..
  cd front-end
+ npm install
 ```
 ### Preencha o .env caso deseje usar uma porta diferente de 3000
 ```
