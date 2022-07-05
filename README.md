@@ -137,6 +137,8 @@ http://localhost:3001
  npm run test:back-end
 ```
 
+## Front-end:
+
 ### Na pasta front-end, rode o comando:
 ```
  npm test
