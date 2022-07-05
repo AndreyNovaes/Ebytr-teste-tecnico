@@ -22,7 +22,6 @@ export const createOne = async (data) => {
 
 export const updateById = async (id, data) => {
   const response = await api.put(`/${id}`, data);
-  console.log(response);
   return response;
 };
 
