@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-require('dotenv').config();
-
 const api = axios.create({
   baseURL: `http://localhost:${process.env.PORT || 3001}/tasks`,
 });
