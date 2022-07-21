@@ -12,15 +12,10 @@
 - NodeJS;
 - Express;
 - Docker;
-- Docker-compose;
-- Sequelize(dialect: MySQL);
-- Sequelize-cli;
-- Testes unitários(mocha, chai, sinon, sequelize-test-helpers);
-- Testes de integração(nyc, mocha, chai, chai-http, mocks);
-- Eslint-config-airbnb-base;
-- Nodemon;
-- Dotenv para a configuração das variáveis de ambiente necessárias;
-
+- Sequelize;
+- MySQL2;
+- Testes unitários;
+- Testes de integração;
 
 # 💻 Como rodar na minha máquina
 
