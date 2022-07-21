@@ -1,7 +1,7 @@
 # :books: Descrição do projeto
 
 <p align="justify">
- Criação de aplicação de tarefas com front-end em ReactJS, estilizado com chakra UI e back-end em NodeJS.
+ Criação de aplicação de gerenciamento de tarefas com front-end em ReactJS, estilizado com chakra UI e back-end em NodeJS.
 </p>
 
 # :bookmark_tabs: Ferramentas utilizadas 
