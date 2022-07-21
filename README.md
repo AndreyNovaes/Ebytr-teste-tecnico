@@ -9,7 +9,6 @@
 - Javascript;
 - ReactJS;
 - Chakra UI;
-- NodeJS;
 - Express;
 - Docker;
 - Sequelize;
