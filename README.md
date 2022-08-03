@@ -104,7 +104,7 @@ http://localhost:3000/
 
 # Funcionalidades
 
-## 📚 É recomendado a utilização do seu navagador com o plugin JSON Viewer para a leitura da documentação do back-end.
+## 📚 É recomendado a utilização do seu navegador com o plugin JSON Viewer para a leitura da documentação do back-end.
 [Link do JSON Viewer na chrome web store](https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh?hl=pt-BR)
 ```
 http://localhost:3001
