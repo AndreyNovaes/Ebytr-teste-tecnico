@@ -3,7 +3,7 @@ import {
   ChakraProvider,
   theme,
 } from '@chakra-ui/react';
-import { ColorModeSwitcher } from './css/ColorModeSwitcher';
+import ColorModeSwitcher from './components/ColorModeSwitcher';
 import TaskCreator from './components/TaskCreator';
 import Tasks from './components/Tasks';
 
