@@ -50,51 +50,33 @@ http://localhost:3002
 ### Dependências mínimas para rodar a aplicação
   - NodeJS: `Versão usada => NodeJS version v16.14.2`
 
-### Clone o projeto, entre na pasta e instale as dependências
+### Clone o projeto e entre na pasta
 
 ```
  git clone https://github.com/AndreyNovaes/Ebytr-teste-tecnico.git
  cd Ebytr-teste-tecnico
- npm install
 ```
 
-### Preencha o .env, dentro da pasta back-end, use esse commando para cria-lo, entre no arquivo .env e preencha com as informações do seu banco de dados MySQL local
+### Preencha o .env, dentro da pasta back-end, use esse commando para cria-lo, entre no arquivo .env e preencha com as informações do seu banco de dados MySQL local, instale as dependências e rode o back-end
 
 ```
  cd back-end
+ npm install
  cp .env.example .env
-```
-
-### Rode a aplicação
-
-```
  npm start
 ```
 
 ### O back-end estará rodando na porta 3001
 ```
-http://localhost:3001
+http://localhost:3001/tasks
 ```
 
-### abra um novo terminal e entre na pasta raiz do projeto
-  
-``` 
- cd Ebytr-teste-tecnico
-```
-
-### Entre na pasta front-end e instale as dependências
+### Abra um novo terminal, entre na pasta front-end, instale as dependências e rode a aplicação react
 
 ```
  cd front-end
  npm install
-```
-### Preencha o .env caso tenha mudado a porta da API
-```
- cp .env.example .env
-```
-### Rode a aplicação
-```
-npm start
+ npm start
 ```
 
 ### O front-end estará rodando na porta 3000
