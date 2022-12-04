@@ -22,7 +22,7 @@
 
 ### Dependências mínimas para rodar a aplicação com docker
   - Docker: `Versão usada => Docker version 20.10.14`
-  - Docker-compose: `Versão usada => Docker-compose version 1.29.2`
+  - Docker compose: `Versão usada => Docker-compose version 2.3.3`
 
 ### Clone o projeto e entre na pasta
 ```
