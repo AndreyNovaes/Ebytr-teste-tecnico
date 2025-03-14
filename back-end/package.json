@@ -11,6 +11,13 @@
     "seed": "npx sequelize-cli db:seed:all",
     "engage:prod": "npm run drop && npm run create && npm run migrate && npm run dev",
     "engage": "npm run create && npm run migrate && npm run seed && npm run dev",
+    "pm2:start": "npx pm2 start ecosystem.config.js",
+    "pm2:start:prod": "npx pm2 start ecosystem.config.js --env production",
+    "pm2:stop": "npx pm2 stop todo-app",
+    "pm2:restart": "npx pm2 restart todo-app",
+    "pm2:logs": "npx pm2 logs todo-app",
+    "pm2:monit": "npx pm2 monit",
+    "pm2:list": "npx pm2 list",
     "start": "npm run engage:prod",
     "test": "nyc mocha src/tests/**/*.test.js --exit"
   },

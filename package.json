@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/AndreyNovaes/Ebytr-back-end-teste-tecnico/issues"
   },
-  "homepage": "https://github.com/AndreyNovaes/Ebytr-back-end-teste-tecnico#readme"
+  "homepage": "https://github.com/AndreyNovaes/Ebytr-back-end-teste-tecnico#readme",
+  "dependencies": {
+    "pm2": "^5.4.3"
+  }
 }
